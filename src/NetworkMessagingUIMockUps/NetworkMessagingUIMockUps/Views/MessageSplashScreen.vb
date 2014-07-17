@@ -41,14 +41,10 @@
             LoadMessage(_messages(_messageIdx))
         End If
 
-        If (_messageIdx = _messages.Count - 1) Then
-            SplashNextButton.Text = "Close"
-        End If
-
     End Sub
 
-    Private Sub SplashNextButton_Click(sender As Object, e As EventArgs) Handles SplashNextButton.Click
-        If (SplashNextButton.Text = "Close") Then
+    Private Sub SplashNextButton_Click(sender As Object, e As EventArgs) Handles SplashOkButton.Click
+        If (_messageIdx = _messages.Count - 1) Then
             Me.Close()
         End If
 

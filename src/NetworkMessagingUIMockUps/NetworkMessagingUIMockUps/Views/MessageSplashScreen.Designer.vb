@@ -26,9 +26,9 @@ Partial Class MessageSplashScreen
         Me.SplashButtonBorderPanel = New AdvUserCtrls.BorderPanel()
         Me.MessageCountLabel = New System.Windows.Forms.Label()
         Me.SplashPrintButton = New AdvUserCtrls.GlassButton()
-        Me.SplashNextButton = New AdvUserCtrls.GlassButton()
-        Me.MessageViewerControl = New NetworkMessagingUIMockUps.MessageViewer()
+        Me.SplashOkButton = New AdvUserCtrls.GlassButton()
         Me.SplashKeepNewButton = New AdvUserCtrls.GlassButton()
+        Me.MessageViewerControl = New NetworkMessagingUIMockUps.MessageViewer()
         Me.SplashButtonBorderPanel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -38,7 +38,7 @@ Partial Class MessageSplashScreen
         Me.SplashButtonBorderPanel.Controls.Add(Me.SplashKeepNewButton)
         Me.SplashButtonBorderPanel.Controls.Add(Me.MessageCountLabel)
         Me.SplashButtonBorderPanel.Controls.Add(Me.SplashPrintButton)
-        Me.SplashButtonBorderPanel.Controls.Add(Me.SplashNextButton)
+        Me.SplashButtonBorderPanel.Controls.Add(Me.SplashOkButton)
         Me.SplashButtonBorderPanel.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.SplashButtonBorderPanel.Location = New System.Drawing.Point(0, 590)
         Me.SplashButtonBorderPanel.Name = "SplashButtonBorderPanel"
@@ -49,10 +49,11 @@ Partial Class MessageSplashScreen
         'MessageCountLabel
         '
         Me.MessageCountLabel.AutoSize = True
-        Me.MessageCountLabel.Location = New System.Drawing.Point(109, 24)
+        Me.MessageCountLabel.Location = New System.Drawing.Point(111, 24)
         Me.MessageCountLabel.Name = "MessageCountLabel"
-        Me.MessageCountLabel.Size = New System.Drawing.Size(0, 16)
+        Me.MessageCountLabel.Size = New System.Drawing.Size(105, 16)
         Me.MessageCountLabel.TabIndex = 3
+        Me.MessageCountLabel.Text = "Message x of y"
         '
         'SplashPrintButton
         '
@@ -64,15 +65,24 @@ Partial Class MessageSplashScreen
         Me.SplashPrintButton.TabIndex = 1
         Me.SplashPrintButton.Text = "Print"
         '
-        'SplashNextButton
+        'SplashOkButton
         '
-        Me.SplashNextButton.Dock = System.Windows.Forms.DockStyle.Right
-        Me.SplashNextButton.ImagePadding = New System.Drawing.Size(0, 0)
-        Me.SplashNextButton.Location = New System.Drawing.Point(879, 8)
-        Me.SplashNextButton.Name = "SplashNextButton"
-        Me.SplashNextButton.Size = New System.Drawing.Size(95, 47)
-        Me.SplashNextButton.TabIndex = 0
-        Me.SplashNextButton.Text = "Next"
+        Me.SplashOkButton.Dock = System.Windows.Forms.DockStyle.Right
+        Me.SplashOkButton.ImagePadding = New System.Drawing.Size(0, 0)
+        Me.SplashOkButton.Location = New System.Drawing.Point(879, 8)
+        Me.SplashOkButton.Name = "SplashOkButton"
+        Me.SplashOkButton.Size = New System.Drawing.Size(95, 47)
+        Me.SplashOkButton.TabIndex = 0
+        Me.SplashOkButton.Text = "OK"
+        '
+        'SplashKeepNewButton
+        '
+        Me.SplashKeepNewButton.ImagePadding = New System.Drawing.Size(0, 0)
+        Me.SplashKeepNewButton.Location = New System.Drawing.Point(779, 8)
+        Me.SplashKeepNewButton.Name = "SplashKeepNewButton"
+        Me.SplashKeepNewButton.Size = New System.Drawing.Size(95, 47)
+        Me.SplashKeepNewButton.TabIndex = 4
+        Me.SplashKeepNewButton.Text = "Keep As New"
         '
         'MessageViewerControl
         '
@@ -83,15 +93,6 @@ Partial Class MessageSplashScreen
         Me.MessageViewerControl.Name = "MessageViewerControl"
         Me.MessageViewerControl.Size = New System.Drawing.Size(984, 590)
         Me.MessageViewerControl.TabIndex = 1
-        '
-        'SplashKeepNewButton
-        '
-        Me.SplashKeepNewButton.ImagePadding = New System.Drawing.Size(0, 0)
-        Me.SplashKeepNewButton.Location = New System.Drawing.Point(779, 8)
-        Me.SplashKeepNewButton.Name = "SplashKeepNewButton"
-        Me.SplashKeepNewButton.Size = New System.Drawing.Size(95, 47)
-        Me.SplashKeepNewButton.TabIndex = 4
-        Me.SplashKeepNewButton.Text = "Keep As New"
         '
         'MessageSplashScreen
         '
@@ -110,7 +111,7 @@ Partial Class MessageSplashScreen
 
     End Sub
     Friend WithEvents SplashButtonBorderPanel As AdvUserCtrls.BorderPanel
-    Friend WithEvents SplashNextButton As AdvUserCtrls.GlassButton
+    Friend WithEvents SplashOkButton As AdvUserCtrls.GlassButton
     Friend WithEvents MessageViewerControl As NetworkMessagingUIMockUps.MessageViewer
     Friend WithEvents SplashPrintButton As AdvUserCtrls.GlassButton
     Friend WithEvents MessageCountLabel As System.Windows.Forms.Label
