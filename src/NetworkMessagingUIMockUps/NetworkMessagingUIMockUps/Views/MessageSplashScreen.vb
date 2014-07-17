@@ -34,24 +34,39 @@
     End Sub
 
     Private Sub MoveNext()
-        _messageIdx += 1
 
-        MessageCountLabel.Text = String.Format("Message {0} of {1}", _messageIdx + 1, _messages.Count)
-        If _messageIdx < _messages.Count Then
+        If _messageIdx < _messages.Count - 1 Then
+            _messageIdx += 1
+
+            UpdateMessageCountLabel()
+
             LoadMessage(_messages(_messageIdx))
+
         End If
+
+    End Sub
+
+    Private Sub UpdateMessageCountLabel()
+        MessageCountLabel.Text = String.Format("Message {0} of {1}", _messageIdx + 1, _messages.Count)
 
     End Sub
 
     Private Sub SplashNextButton_Click(sender As Object, e As EventArgs) Handles SplashOkButton.Click
+
+        MarkMessageAsViewed()
+
         If (_messageIdx = _messages.Count - 1) Then
             Me.Close()
-        End If
 
-        MoveNext()
+        Else
+            MoveNext()
+
+        End If
 
     End Sub
 
-
+    Private Sub MarkMessageAsViewed()
+        'stub
+    End Sub
 
 End Class
