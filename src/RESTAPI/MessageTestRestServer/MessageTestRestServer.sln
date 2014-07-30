@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageTestRestServer", "MessageTestRestServer\MessageTestRestServer.csproj", "{D99BCF4E-0430-43DA-8724-C0E2D1FAE316}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageTestRestServer.Tests", "MessageTestRestServer.Tests\MessageTestRestServer.Tests.csproj", "{78624FC0-5CAA-492F-A21E-CBBF614179EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D99BCF4E-0430-43DA-8724-C0E2D1FAE316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D99BCF4E-0430-43DA-8724-C0E2D1FAE316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D99BCF4E-0430-43DA-8724-C0E2D1FAE316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D99BCF4E-0430-43DA-8724-C0E2D1FAE316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78624FC0-5CAA-492F-A21E-CBBF614179EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78624FC0-5CAA-492F-A21E-CBBF614179EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78624FC0-5CAA-492F-A21E-CBBF614179EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78624FC0-5CAA-492F-A21E-CBBF614179EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
