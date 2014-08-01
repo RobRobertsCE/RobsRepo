@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestHelper", "UnitTestHelper\UnitTestHelper.csproj", "{CDE5D5C6-B3E7-4B01-AB15-09EC4F85D1B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestHelperLibrary", "UnitTestHelperLibrary\UnitTestHelperLibrary.csproj", "{C4602290-604B-49EB-AFE0-689DAE2AF7CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDE5D5C6-B3E7-4B01-AB15-09EC4F85D1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDE5D5C6-B3E7-4B01-AB15-09EC4F85D1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDE5D5C6-B3E7-4B01-AB15-09EC4F85D1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDE5D5C6-B3E7-4B01-AB15-09EC4F85D1B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4602290-604B-49EB-AFE0-689DAE2AF7CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4602290-604B-49EB-AFE0-689DAE2AF7CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4602290-604B-49EB-AFE0-689DAE2AF7CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4602290-604B-49EB-AFE0-689DAE2AF7CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
