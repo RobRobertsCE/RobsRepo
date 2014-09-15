@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{97A45462-E042-4D66-B5C5-52F856CB652F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClassBuilder</RootNamespace>
+    <AssemblyName>ClassBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IModelModifier.cs" />
+    <Compile Include="Logic\ClassWriter.cs" />
+    <Compile Include="IClassWriter.cs" />
+    <Compile Include="IMemberWriter.cs" />
+    <Compile Include="Logic\VbMemberWriter.cs" />
+    <Compile Include="Logic\VbClassWriter.cs" />
+    <Compile Include="Mappers\DTOMapper.cs" />
+    <Compile Include="Mappers\MemberMapper.cs" />
+    <Compile Include="MemberModifier.cs" />
+    <Compile Include="MemberScope.cs" />
+    <Compile Include="MemberType.cs" />
+    <Compile Include="IMember.cs" />
+    <Compile Include="IModel.cs" />
+    <Compile Include="ModelModifier.cs" />
+    <Compile Include="ModelModifierType.cs" />
+    <Compile Include="ModelScope.cs" />
+    <Compile Include="Models\MemberBase.cs" />
+    <Compile Include="Models\MemberField.cs" />
+    <Compile Include="Models\MemberProperty.cs" />
+    <Compile Include="Models\DTObject.cs" />
+    <Compile Include="ModelType.cs" />
+    <Compile Include="Project\ClassBuilderProject.cs" />
+    <Compile Include="IProject.cs" />
+    <Compile Include="Project\IProjectManager.cs" />
+    <Compile Include="Project\ProjectManager.cs" />
+    <Compile Include="Mappers\ProjectMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassBuilder.Data\ClassBuilder.Data.csproj">
+      <Project>{fe949bbc-7c9f-42d6-84be-feaaf450fc85}</Project>
+      <Name>ClassBuilder.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
