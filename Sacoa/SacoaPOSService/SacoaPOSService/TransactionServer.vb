@@ -1,13 +1,10 @@
 ﻿Imports System.Threading
 Imports SacoaPOSService.Commands
+Imports SacoaPOSService.Responses
+
+Public Delegate Sub SecoaResponseDelegate(e As ISecoaResponse)
 
 Public Class TransactionServer
-
-#Region " Events "
-
-    Public Delegate Sub SecoaResponseDelegate(e As ISecoaResponse)
-
-#End Region
 
 #Region " Properties "
 
@@ -36,7 +33,7 @@ Public Class TransactionServer
 
 #End Region
 
-#Region " Public SendCommandAsync "
+#Region " Public SendCommand/SendCommandAsync "
 
     Public Sub SendCommandAsync(command As ISecoaCommand, callback As SecoaResponseDelegate)
         Try
@@ -46,6 +43,14 @@ Public Class TransactionServer
             Throw New Exception("Error sending command: " & ex.Message)
         End Try
     End Sub
+
+    Public Function SendCommand(command As ISecoaCommand) As ISecoaResponse
+        Try
+            Return RunCommand(command)
+        Catch ex As Exception
+            Throw New Exception("Error sending command: " & ex.Message)
+        End Try
+    End Function
 
 #End Region
 
@@ -65,6 +70,16 @@ Public Class TransactionServer
             callback.Invoke(New Responses.SecoaErrorResponse(command, ex.Message))
         End Try
     End Sub
+
+    Private Function RunCommand(command As ISecoaCommand) As ISecoaResponse
+        Dim response As ISecoaResponse = Nothing
+
+        Dim data As String = command.BuildCommand()
+
+        'three ways to send command: tcp, file, activex
+
+        Return response
+    End Function
 
 #End Region
 

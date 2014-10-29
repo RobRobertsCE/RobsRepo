@@ -1,13 +1,17 @@
-﻿Public Interface ISecoaResponse
+﻿Namespace Responses
 
-    ''' <summary>
-    ''' OK or ERROR
-    ''' </summary>
-    ReadOnly Property ResponseState As String
+    Public Interface ISecoaResponse
 
-    ''' <summary>
-    ''' The name of the response data structure.
-    ''' </summary>
-    ReadOnly Property ResponseName As String
+        ''' <summary>
+        ''' OK or ERROR
+        ''' </summary>
+        ReadOnly Property ResponseState As String
 
-End Interface
+        ''' <summary>
+        ''' The name of the response data structure.
+        ''' </summary>
+        ReadOnly Property ResponseName As String
+
+    End Interface
+
+End Namespace
