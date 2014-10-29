@@ -17,7 +17,7 @@
             End Get
         End Property
 
-        Protected Friend Sub ParseResponse(response As String)
+        Protected Friend Overridable Sub ParseResponse(response As String)
             Dim values As String() = response.Split(","c)
             _responseState = values(0)
             _responseName = values(1)
