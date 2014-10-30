@@ -26,6 +26,8 @@ Public Class SecoaCardDataResponse
             Tickets
             CreditsEngineCredits
             TotalCreditsPlayed
+            ChildStatus
+            TicketType
         End Enum
 
         Public Property CardRange As String
@@ -50,6 +52,8 @@ Public Class SecoaCardDataResponse
         Public Property Tickets As String
         Public Property CreditsEngineCredits As String
         Public Property TotalCreditsPlayed As String
+        Public Property ChildStatus As String
+        Public Property TicketType As String
 
         Protected Friend Sub New(responseString As String)
             ParseResponse(responseString)
@@ -89,6 +93,8 @@ Public Class SecoaCardDataResponse
             Tickets = values(Fields.Tickets)
             CreditsEngineCredits = values(Fields.CreditsEngineCredits)
             TotalCreditsPlayed = values(Fields.TotalCreditsPlayed)
+            ChildStatus = values(Fields.ChildStatus)
+            TicketType = values(Fields.TicketType)
         End Sub
 
     End Class

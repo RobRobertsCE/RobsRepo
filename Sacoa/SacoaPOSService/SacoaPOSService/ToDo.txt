@@ -1,0 +1,6 @@
+﻿1. Add support for Supported Commands command
+2. Add support for Version command
+3. Translate AsciiHex fields into strings
+4. Update classes for Addendum changes
+5. Create mock POSServer (tcp, file, activex)
+6. Create tests
