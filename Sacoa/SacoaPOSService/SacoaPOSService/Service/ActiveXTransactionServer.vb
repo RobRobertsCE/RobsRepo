@@ -9,8 +9,17 @@ Namespace Service
         Implements ISecoaTransactionServer
 
 
-#Region " Properties "
+        Private Class StubActiveXPosServer
+            Public Function RefreshPlayCardDb() As Boolean
+                Return True
+            End Function
+            Public Function Process(command As String) As String
+                Return command
+            End Function
+        End Class
 
+#Region " Fields "
+        Private _posServer As New StubActiveXPosServer
 #End Region
 
 #Region " Constructor "
@@ -24,7 +33,7 @@ Namespace Service
 #Region " GetCommandString "
 
         Protected Friend Overrides Function GetCommandString(command As ISecoaCommand) As String
-            Return command.BuildCommand() & Environment.NewLine
+            Return command.BuildCommand()
         End Function
 
 #End Region
@@ -32,7 +41,8 @@ Namespace Service
 #Region " SendSecoaCommand "
 
         Protected Friend Overrides Function SendSecoaCommand(cmd As String) As String
-            Return "OK, ACTIVEX, OK"
+            _posServer.RefreshPlayCardDb()
+            Return _posServer.Process(cmd)
         End Function
 
 #End Region
