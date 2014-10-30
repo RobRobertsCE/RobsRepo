@@ -1,7 +1,8 @@
 ﻿Namespace Responses
 
 Public Class SecoaCardDataResponse
-    Inherits SecoaResponse
+        Inherits SecoaResponse
+
         Private Enum Fields
             CardRange = 2
             Credits
@@ -50,10 +51,21 @@ Public Class SecoaCardDataResponse
         Public Property CreditsEngineCredits As String
         Public Property TotalCreditsPlayed As String
 
-        Protected Friend Overrides Sub ParseResponse(response As String)
-            MyBase.ParseResponse(response)
+        Protected Friend Sub New(responseString As String)
+            ParseResponse(responseString)
+        End Sub
 
+        Protected Friend Sub New(responseValues As String())
+            ParseResponse(responseValues)
+        End Sub
+
+        Protected Friend Overrides Sub ParseResponse(response As String)
             Dim values As String() = response.Split(","c)
+            ParseResponse(values)
+        End Sub
+
+        Protected Friend Overrides Sub ParseResponse(values As String())
+            MyBase.ParseResponse(values)
 
             CardRange = values(Fields.CardRange)
             Credits = values(Fields.Credits)

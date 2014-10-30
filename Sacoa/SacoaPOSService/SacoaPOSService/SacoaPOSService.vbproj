@@ -88,11 +88,16 @@
     <Compile Include="Responses\SecoaCardDataResponse.vb" />
     <Compile Include="Responses\SecoaCardDecodeResponse.vb" />
     <Compile Include="Responses\SecoaDelayedRechargeResponse.vb" />
-    <Compile Include="Responses\SecoaErrorResponse.vb" />
     <Compile Include="Responses\SecoaPosResponse.vb" />
     <Compile Include="Responses\SecoaResponse.vb" />
-    <Compile Include="SacoaService.vb" />
-    <Compile Include="TransactionServer.vb" />
+    <Compile Include="Responses\SecoaResponseFactory.vb" />
+    <Compile Include="Service\ActiveXTransactionServer.vb" />
+    <Compile Include="Service\FileTransactionServer.vb" />
+    <Compile Include="Service\ISecoaTransactionServer.vb" />
+    <Compile Include="Service\SacoaService.vb" />
+    <Compile Include="Service\SecoaResponseDelegate.vb" />
+    <Compile Include="Service\TcpTransactionServer.vb" />
+    <Compile Include="Service\TransactionServer.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
