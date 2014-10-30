@@ -4,3 +4,4 @@
 4. Update classes for Addendum changes
 5. Create mock POSServer (tcp, file, activex)
 6. Create tests
+7. Move strings to consts

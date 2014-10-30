@@ -81,9 +81,11 @@
     <Compile Include="Commands\SecoaPosCloseCommand.vb" />
     <Compile Include="Commands\SecoaPosOpenCommand.vb" />
     <Compile Include="Commands\SecoaSellPromoCommand.vb" />
+    <Compile Include="Commands\SecoaSupportedCommandsCommand.vb" />
     <Compile Include="Commands\SecoaTicketsAddCommand.vb" />
     <Compile Include="Commands\SecoaTicketSetTypeCommand.vb" />
     <Compile Include="Commands\SecoaTicketsRemoveCommand.vb" />
+    <Compile Include="Commands\SecoaVersionCommand.vb" />
     <Compile Include="Responses\ISecoaResponse.vb" />
     <Compile Include="Responses\SecoaCardDataResponse.vb" />
     <Compile Include="Responses\SecoaCardDecodeResponse.vb" />
@@ -91,6 +93,8 @@
     <Compile Include="Responses\SecoaPosResponse.vb" />
     <Compile Include="Responses\SecoaResponse.vb" />
     <Compile Include="Responses\SecoaResponseFactory.vb" />
+    <Compile Include="Responses\SecoaSupportedCommandsResponse.vb" />
+    <Compile Include="Responses\SecoaVersionResponse.vb" />
     <Compile Include="Service\ActiveXTransactionServer.vb" />
     <Compile Include="Service\FileTransactionServer.vb" />
     <Compile Include="Service\ISecoaTransactionServer.vb" />

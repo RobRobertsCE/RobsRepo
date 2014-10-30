@@ -20,6 +20,10 @@ Public Class SecoaResponseFactory
                 response = New SecoaDelayedRechargeResponse(responseValues)
             Case "POS OPEN", "POS CLOSE"
                 response = New SecoaPosResponse(responseValues)
+            Case "VERSION"
+                response = New SecoaVersionResponse(responseValues)
+            Case "SUPPORTED COMMANDS"
+                response = New SecoaSupportedCommandsResponse(responseValues)
             Case Else
                 Throw New ArgumentException(responseType)
         End Select
