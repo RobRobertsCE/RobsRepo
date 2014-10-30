@@ -3,7 +3,7 @@
     Public Class SecoaSupportedCommandsCommand
         Inherits SecoaCommand
 
-        Public Property IncludeHandlerInfo As String = "IncludeHandlerInfo=Yes"
+        Public Property IncludeHandlerInfo As String = "Yes"
 
         Public Overrides ReadOnly Property CommandName As String
             Get
