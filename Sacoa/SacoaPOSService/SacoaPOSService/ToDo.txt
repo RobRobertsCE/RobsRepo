@@ -1,11 +1,11 @@
 ﻿1. Add support for Supported Commands command
 2. Add support for Version command
 3. Update classes for Addendum changes
-
 3.1. Add support for Card History command
+
 4. Translate AsciiHex fields into strings
 5. Create mock POSServer (tcp, file, activex)
 6. Create tests
-7. Move strings to consts
+7. Move strings to consts, add asciihex values?
 8. Add business logic for individual fields.
 9. Change Command to Op
