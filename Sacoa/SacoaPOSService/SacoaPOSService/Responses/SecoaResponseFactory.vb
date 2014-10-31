@@ -16,6 +16,8 @@ Public Class SecoaResponseFactory
                 response = New SecoaCardDataResponse(responseValues)
             Case "CARD DECODE"
                 response = New SecoaCardDecodeResponse(responseValues)
+            Case "CARD HISTORY"
+                response = New SecoaCardHistoryResponse(responseValues)
             Case "DELAYED RECHARGE"
                 response = New SecoaDelayedRechargeResponse(responseValues)
             Case "POS OPEN", "POS CLOSE"

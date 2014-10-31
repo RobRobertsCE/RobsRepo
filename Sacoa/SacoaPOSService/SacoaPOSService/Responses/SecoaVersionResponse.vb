@@ -1,4 +1,6 @@
-﻿Namespace Responses
+﻿Imports SacoaPOSService.Logic
+
+Namespace Responses
 
     Public Class SecoaVersionResponse
         Inherits SecoaResponse
@@ -7,17 +9,7 @@
             Count = 2
         End Enum
 
-        Public Class VersionDescription
-            Public Property VersionName As String
-            Public Property VersionList As New List(Of String)
-            Public Sub New(versionDescriptionString As String)
-                VersionList.AddRange(versionDescriptionString.Split(";"c))
-                VersionName = VersionList(0)
-            End Sub
-        End Class
-
-        Public Property Versions As List(Of VersionDescription)
-
+        Public Property Versions As List(Of SecoaVersionDescription)
 
         Protected Friend Sub New(responseString As String)
             ParseResponse(responseString)
@@ -34,10 +26,10 @@
 
         Protected Friend Overrides Sub ParseResponse(responseValues As String())
             MyBase.ParseResponse(responseValues)
-            Versions = New List(Of VersionDescription)()
+            Versions = New List(Of SecoaVersionDescription)()
             Dim versionCount As Integer = CInt(responseValues(Fields.Count))
             For idx As Integer = Fields.Count + 1 To versionCount + Fields.Count - 1
-                Versions.Add(New VersionDescription(responseValues(idx)))
+                Versions.Add(New SecoaVersionDescription(responseValues(idx)))
             Next
         End Sub
     End Class

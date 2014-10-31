@@ -56,6 +56,9 @@ Namespace Service
         Public Function SendCommand(command As SecoaCardDecodeCommand) As SecoaCardDecodeResponse
             Return Send(command)
         End Function
+        Public Function SendCommand(command As SecoaCardHistoryCommand) As SecoaCardHistoryResponse
+            Return Send(command)
+        End Function
 
         Public Function SendCommand(command As SecoaCardRechargeCommand) As SecoaCardDataResponse
             Return Send(command)

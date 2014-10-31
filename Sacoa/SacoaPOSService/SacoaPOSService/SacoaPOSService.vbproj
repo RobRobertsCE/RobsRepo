@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="AsciiHexConverter.vb" />
     <Compile Include="Commands\SecoaCardCommand.vb" />
+    <Compile Include="Commands\SecoaCardHistoryCommand.vb" />
     <Compile Include="Commands\SecoaCardNumberCommand.vb" />
     <Compile Include="Commands\SecoaCardRefundCommand.vb" />
     <Compile Include="Commands\ISecoaCommand.vb" />
@@ -86,14 +87,18 @@
     <Compile Include="Commands\SecoaTicketSetTypeCommand.vb" />
     <Compile Include="Commands\SecoaTicketsRemoveCommand.vb" />
     <Compile Include="Commands\SecoaVersionCommand.vb" />
+    <Compile Include="Logic\SecoaCardHistory.vb" />
+    <Compile Include="Logic\SecoaOpDescription.vb" />
     <Compile Include="Responses\ISecoaResponse.vb" />
     <Compile Include="Responses\SecoaCardDataResponse.vb" />
     <Compile Include="Responses\SecoaCardDecodeResponse.vb" />
+    <Compile Include="Responses\SecoaCardHistoryResponse.vb" />
     <Compile Include="Responses\SecoaDelayedRechargeResponse.vb" />
     <Compile Include="Responses\SecoaPosResponse.vb" />
     <Compile Include="Responses\SecoaResponse.vb" />
     <Compile Include="Responses\SecoaResponseFactory.vb" />
     <Compile Include="Responses\SecoaSupportedCommandsResponse.vb" />
+    <Compile Include="Logic\SecoaVersionDescription.vb" />
     <Compile Include="Responses\SecoaVersionResponse.vb" />
     <Compile Include="Service\ActiveXTransactionServer.vb" />
     <Compile Include="Service\FileTransactionServer.vb" />

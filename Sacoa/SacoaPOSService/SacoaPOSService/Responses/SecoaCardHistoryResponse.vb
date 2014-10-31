@@ -2,14 +2,17 @@
 
 Namespace Responses
 
-    Public Class SecoaSupportedCommandsResponse
+    Public Class SecoaCardHistoryResponse
         Inherits SecoaResponse
 
         Private Enum Fields
-            Count = 2
+            TotalRecordCount = 2
+            RetreivedRecordCount
         End Enum
 
-        Public Property OpDescriptions As List(Of SecoaOpDescription)
+        Public Property TotalRecordCount As Integer
+        Public Property RetreivedRecordCount As Integer
+        Public Property CardHistory As List(Of SecoaCardHistory)
 
         Protected Friend Sub New(responseString As String)
             ParseResponse(responseString)
@@ -26,10 +29,11 @@ Namespace Responses
 
         Protected Friend Overrides Sub ParseResponse(responseValues As String())
             MyBase.ParseResponse(responseValues)
-            OpDescriptions = New List(Of SecoaOpDescription)()
-            Dim opCount As Integer = CInt(responseValues(Fields.Count))
-            For idx As Integer = Fields.Count + 1 To opCount + Fields.Count - 1
-                OpDescriptions.Add(New SecoaOpDescription(responseValues(idx)))
+            TotalRecordCount = CInt(responseValues(Fields.TotalRecordCount))
+            RetreivedRecordCount = CInt(responseValues(Fields.RetreivedRecordCount))
+            CardHistory = New List(Of SecoaCardHistory)()
+            For idx As Integer = Fields.RetreivedRecordCount + 1 To RetreivedRecordCount + Fields.RetreivedRecordCount - 1
+                CardHistory.Add(New SecoaCardHistory(responseValues(idx)))
             Next
         End Sub
 
