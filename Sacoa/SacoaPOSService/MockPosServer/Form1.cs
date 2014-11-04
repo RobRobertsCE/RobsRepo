@@ -52,7 +52,6 @@ namespace MockPosServer
         {
             InitializeFileService();
             _fileServer.Start();
-
             Display("Server started");
             _state = ServerState.Started;
         }
@@ -91,9 +90,7 @@ namespace MockPosServer
         }
         void StopServer()
         {
-
             DisposeFileService();
-
             Display("Server stopped");
             _state = ServerState.Ready;
         }
