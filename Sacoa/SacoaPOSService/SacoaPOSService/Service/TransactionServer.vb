@@ -32,7 +32,7 @@ Namespace Service
         ''' <param name="command"></param>
         ''' <param name="callback"></param>
         ''' <remarks></remarks>
-        Public Overridable Sub SendCommandAsync(command As ISecoaCommand, callback As SecoaResponseDelegate) Implements ISecoaTransactionServer.SendCommandAsync
+        Public Overridable Sub SendCommandAsync(command As ISecoaCommand, callback As SacoaResponseDelegate) Implements ISecoaTransactionServer.SendCommandAsync
             Try
                 Dim commandThread As New Thread(Sub() SendAsync(command, callback))
                 commandThread.Start()
@@ -47,7 +47,7 @@ Namespace Service
         ''' <param name="command"></param>
         ''' <returns></returns>
         ''' <remarks></remarks>
-        Public Overridable Function SendCommand(command As ISecoaCommand) As ISecoaResponse Implements ISecoaTransactionServer.SendCommand
+        Public Overridable Function SendCommand(command As ISecoaCommand) As ISacoaResponse Implements ISecoaTransactionServer.SendCommand
             Try
                 Return Send(command)
             Catch ex As Exception
@@ -59,12 +59,12 @@ Namespace Service
 
 #Region " Send/SendAsync "
 
-        Protected Friend Overridable Sub SendAsync(command As ISecoaCommand, callback As SecoaResponseDelegate)
+        Protected Friend Overridable Sub SendAsync(command As ISecoaCommand, callback As SacoaResponseDelegate)
             Dim response = Send(command)
             callback.Invoke(response)
         End Sub
 
-        Protected Friend Overridable Function Send(command As ISecoaCommand) As ISecoaResponse
+        Protected Friend Overridable Function Send(command As ISecoaCommand) As ISacoaResponse
             Dim commandString As String = GetCommandString(command)
             Dim responseString = SendSecoaCommand(commandString)
             Return SecoaResponseFactory.GetResponse(responseString)

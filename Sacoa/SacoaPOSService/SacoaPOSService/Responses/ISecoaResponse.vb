@@ -1,6 +1,6 @@
 ﻿Namespace Responses
 
-    Public Interface ISecoaResponse
+    Public Interface ISacoaResponse
 
         ''' <summary>
         ''' OK or ERROR

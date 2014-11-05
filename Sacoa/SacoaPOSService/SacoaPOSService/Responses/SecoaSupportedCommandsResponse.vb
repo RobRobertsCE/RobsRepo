@@ -6,16 +6,15 @@ Namespace Responses
         Inherits SecoaResponse
 
         Private Enum Fields
-            Count = 2
-            FirstOpContainer = 3
-            FirstOpDescription = 4
+            OpCountField = 2
         End Enum
 
+        Private Const ParamStartTag As String = " <pos>"
+        
         Public Property OpDescriptions As List(Of SecoaOpDescription)
-        Public Property OpCount As Integer
         Public Property OpContent As String
 
-        Protected Friend Sub New(responseString As String)
+        Public Sub New(responseString As String)
             ParseResponse(responseString)
         End Sub
 
@@ -24,29 +23,39 @@ Namespace Responses
         End Sub
 
         Protected Friend Overrides Sub ParseResponse(responseString As String)
-            Dim responseValues As String() = responseString.Split(","c)
+            Dim responseValues As String() = responseString.Split(SplitOnComma)
             ParseResponse(responseValues)
         End Sub
 
         Protected Friend Overrides Sub ParseResponse(responseValues As String())
             MyBase.ParseResponse(responseValues)
+            Dim startingValueIndex = Fields.OpCountField + 1
+            Dim IncludeHandlerInfo As Boolean = False
+            Dim OpContainer As String = String.Empty
+
             OpDescriptions = New List(Of SecoaOpDescription)()
-            OpCount = CInt(responseValues(Fields.Count))
-            Dim OpContainer As String = responseValues(Fields.FirstOpContainer)
+            Dim OpLineCount = CInt(responseValues(Fields.OpCountField))
 
-            For idx As Integer = Fields.FirstOpDescription To responseValues.Count - 1
-                If (responseValues(idx).StartsWith(" <pos>")) Then
-                    Try
-                        OpDescriptions.Add(New SecoaOpDescription(responseValues(idx), OpContainer))
-                    Catch ex As Exception
-                        Console.WriteLine(ex.ToString())
-                    End Try
-                    OpDescriptions.Add(New SecoaOpDescription(responseValues(idx), OpContainer))
+            If (responseValues.Count - 1 <> OpLineCount + Fields.OpCountField) Then
+                Throw New InvalidOperationException("Did not receive valid response from Secoa.")
+            End If
+
+            If Not (responseValues(startingValueIndex).StartsWith(ParamStartTag)) Then
+                IncludeHandlerInfo = True
+                OpContainer = responseValues(startingValueIndex)
+                startingValueIndex += 1
+            End If
+
+            For valueIndex As Integer = startingValueIndex To OpLineCount - 1
+                If IncludeHandlerInfo Then
+                    If Not (responseValues(valueIndex).StartsWith(ParamStartTag)) Then
+                        OpContainer = responseValues(valueIndex)
+                    Else
+                        OpDescriptions.Add(New SecoaOpDescription(responseValues(valueIndex), OpContainer))
+                    End If
                 Else
-                    OpContainer = responseValues(idx)
-                    Console.WriteLine("OpContainer=" & OpContainer)
+                    OpDescriptions.Add(New SecoaOpDescription(responseValues(valueIndex), OpContainer))
                 End If
-
             Next
         End Sub
 

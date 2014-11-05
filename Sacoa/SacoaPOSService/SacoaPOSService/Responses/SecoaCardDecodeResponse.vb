@@ -9,7 +9,7 @@
 
         Public Property CardNumber As String
 
-        Protected Friend Sub New(responseString As String)
+        Public Sub New(responseString As String)
             ParseResponse(responseString)
         End Sub
 
@@ -18,7 +18,7 @@
         End Sub
 
         Protected Friend Overrides Sub ParseResponse(responseString As String)
-            Dim responseValues As String() = responseString.Split(","c)
+            Dim responseValues As String() = responseString.Split(SplitOnComma)
             ParseResponse(responseValues)
         End Sub
 

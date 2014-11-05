@@ -61,7 +61,10 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SecoaConverters.vb" />
+    <Compile Include="SecoaCardStatus.vb" />
+    <Compile Include="SecoaChildStatus.vb" />
+    <Compile Include="SecoaCommon.vb" />
+    <Compile Include="SecoaConverterExtensions.vb" />
     <Compile Include="Commands\SecoaCardCommand.vb" />
     <Compile Include="Commands\SecoaCardHistoryCommand.vb" />
     <Compile Include="Commands\SecoaCardNumberCommand.vb" />
@@ -100,11 +103,12 @@
     <Compile Include="Responses\SecoaSupportedCommandsResponse.vb" />
     <Compile Include="Logic\SecoaVersionDescription.vb" />
     <Compile Include="Responses\SecoaVersionResponse.vb" />
-    <Compile Include="Service\ActiveXTransactionServer.vb" />
+    <Compile Include="SecoaOpType.vb" />
+    <Compile Include="SecoaTicketType.vb" />
     <Compile Include="Service\FileTransactionServer.vb" />
     <Compile Include="Service\ISecoaTransactionServer.vb" />
     <Compile Include="Service\SacoaService.vb" />
-    <Compile Include="Service\SecoaResponseDelegate.vb" />
+    <Compile Include="Service\SacoaResponseDelegate.vb" />
     <Compile Include="Service\TcpTransactionServer.vb" />
     <Compile Include="Service\TransactionServer.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

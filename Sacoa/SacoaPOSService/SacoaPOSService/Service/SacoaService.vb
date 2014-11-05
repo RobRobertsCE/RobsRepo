@@ -9,7 +9,6 @@ Namespace Service
 #Region " Enumerations "
 
         Private Enum SecoaServerType
-            ActiveX
             File
             Tcp
         End Enum
@@ -26,10 +25,6 @@ Namespace Service
 #End Region
 
 #Region " Constructor "
-
-        Public Sub New()
-            _serverType = SecoaServerType.ActiveX
-        End Sub
 
         Public Sub New(commandDirectory As String)
             _commandDirectory = commandDirectory
@@ -117,24 +112,26 @@ Namespace Service
 
 #Region " SendCommandAsync "
 
-        Public Sub SendCommandAsync(command As ISecoaCommand, callback As SecoaResponseDelegate)
-            Dim server = GetTransactionServer()
-            server.SendCommandAsync(command, callback)
+        Public Sub SendCommandAsync(command As ISecoaCommand, callback As SacoaResponseDelegate)
+            Try
+                GetTransactionServer().SendCommandAsync(command, callback)
+            Catch ex As Exception
+                'TODO: Error Logging
+                Console.WriteLine(ex.ToString())
+            End Try
         End Sub
 
 #End Region
 
 #Region " GetTransactionServer "
 
-        Protected Friend Overridable Function Send(command As ISecoaCommand) As ISecoaResponse
+        Protected Friend Overridable Function Send(command As ISecoaCommand) As ISacoaResponse
             Dim server = GetTransactionServer()
             Return server.SendCommand(command)
         End Function
 
         Protected Friend Overridable Function GetTransactionServer() As ISecoaTransactionServer
             Select Case _serverType
-                Case SecoaServerType.ActiveX
-                    Return New ActiveXTransactionServer()
                 Case SecoaServerType.File
                     Return New FileTransactionServer(_commandDirectory)
                 Case SecoaServerType.Tcp

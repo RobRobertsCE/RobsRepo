@@ -20,7 +20,7 @@ Namespace Responses
         End Sub
 
         Protected Friend Overrides Sub ParseResponse(responseString As String)
-            Dim responseValues As String() = responseString.Split(","c)
+            Dim responseValues As String() = responseString.Split(SplitOnComma)
             ParseResponse(responseValues)
         End Sub
 

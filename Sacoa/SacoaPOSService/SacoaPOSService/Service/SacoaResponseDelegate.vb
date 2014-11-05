@@ -5,4 +5,4 @@
 ''' </summary>
 ''' <param name="e">ISecoaResponse instance</param>
 ''' <remarks></remarks>
-Public Delegate Sub SecoaResponseDelegate(e As ISecoaResponse)
+Public Delegate Sub SacoaResponseDelegate(e As ISacoaResponse)

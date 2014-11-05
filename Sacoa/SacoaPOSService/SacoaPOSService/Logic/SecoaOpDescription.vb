@@ -4,9 +4,10 @@
         Public Property CommandName As String
         Public Property OpContainerName As String
         Public Property CommandParamList As New List(Of String)
+
         Public Sub New(commandDescriptionString As String, opContainerName As String)
             Me.OpContainerName = opContainerName
-            CommandParamList.AddRange(commandDescriptionString.Split(";"c))
+            CommandParamList.AddRange(commandDescriptionString.Split(SplitOnSemiColon))
             CommandName = CommandParamList(1)
         End Sub
     End Class

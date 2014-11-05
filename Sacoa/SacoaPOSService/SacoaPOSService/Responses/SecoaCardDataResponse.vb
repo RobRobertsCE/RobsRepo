@@ -34,15 +34,15 @@ Public Class SecoaCardDataResponse
         Public Property Credits As String
         Public Property Bonus As String
         Public Property Courtesy As String
-        Public Property Status As String
+        Public Property Status As SecoaCardStatus
         Public Property Station As String
         Public Property LastGameId As String
         Public Property CreditsLastBought As String
         Public Property CreditsLastPlayed As String
-        Public Property DateLastBought As String
-        Public Property DateLastPlayed As String
-        Public Property TimeLastBought As String
-        Public Property TimeLastPlayed As String
+        Public Property DateLastBought As Date
+        Public Property DateLastPlayed As Date
+        Public Property TimeLastBought As TimeSpan
+        Public Property TimeLastPlayed As TimeSpan
         Public Property ConsecutiveDays As String
         Public Property TotalDays As String
         Public Property TotalBuys As String
@@ -52,10 +52,10 @@ Public Class SecoaCardDataResponse
         Public Property Tickets As String
         Public Property CreditsEngineCredits As String
         Public Property TotalCreditsPlayed As String
-        Public Property ChildStatus As String
-        Public Property TicketType As String
+        Public Property ChildStatus As SecoaChildStatus
+        Public Property TicketType As SecoaTicketType
 
-        Protected Friend Sub New(responseString As String)
+        Public Sub New(responseString As String)
             ParseResponse(responseString)
         End Sub
 
@@ -64,7 +64,7 @@ Public Class SecoaCardDataResponse
         End Sub
 
         Protected Friend Overrides Sub ParseResponse(response As String)
-            Dim values As String() = response.Split(","c)
+            Dim values As String() = response.Split(SplitOnComma)
             ParseResponse(values)
         End Sub
 
@@ -75,15 +75,15 @@ Public Class SecoaCardDataResponse
             Credits = values(Fields.Credits)
             Bonus = values(Fields.Bonus)
             Courtesy = values(Fields.Courtesy)
-            Status = values(Fields.Status)
+            Status = values(Fields.Status).ToSecoaCardStatus()
             Station = values(Fields.Station)
             LastGameId = values(Fields.LastGameId)
             CreditsLastBought = values(Fields.CreditsLastBought)
             CreditsLastPlayed = values(Fields.CreditsLastPlayed)
-            DateLastBought = values(Fields.DateLastBought)
-            DateLastPlayed = values(Fields.DateLastPlayed)
-            TimeLastBought = values(Fields.TimeLastBought)
-            TimeLastPlayed = values(Fields.TimeLastPlayed)
+            DateLastBought = values(Fields.DateLastBought).FromSecoaDate()
+            DateLastPlayed = values(Fields.DateLastPlayed).FromSecoaDate()
+            TimeLastBought = values(Fields.TimeLastBought).FromSecoaTime()
+            TimeLastPlayed = values(Fields.TimeLastPlayed).FromSecoaTime()
             ConsecutiveDays = values(Fields.ConsecutiveDays)
             TotalDays = values(Fields.TotalDays)
             TotalBuys = values(Fields.TotalBuys)
@@ -93,8 +93,8 @@ Public Class SecoaCardDataResponse
             Tickets = values(Fields.Tickets)
             CreditsEngineCredits = values(Fields.CreditsEngineCredits)
             TotalCreditsPlayed = values(Fields.TotalCreditsPlayed)
-            ChildStatus = values(Fields.ChildStatus)
-            TicketType = values(Fields.TicketType)
+            ChildStatus = values(Fields.ChildStatus).ToSecoaChildStatus()
+            TicketType = values(Fields.TicketType).ToSecoaTicketType()
         End Sub
 
     End Class

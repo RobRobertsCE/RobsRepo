@@ -23,25 +23,29 @@
             OpStoreId
         End Enum
 
-        Public Property OpDate As String
+        Public Property OpDate As DateTime
         Public Property OpName As String
         Public Property OpQty As Integer
         Public Property OpConcept As String
         Public Property OpCounter As String
         Public Property OpAmount As Decimal
-        Public Property OpType As Integer
+        Public Property OpType As SecoaOpType
         Public Property OpTransId As Integer
         Public Property OpStoreId As Integer
 
         Public Sub New(responseString As String)
-            Dim responseValues As String() = responseString.Split(";"c)
+            Dim responseValues As String() = responseString.Split(SplitOnSemiColon)
+            If responseValues.Count < Fields.OpStoreId Then
+                Console.WriteLine("Invalid SecoaCardHistory Data! " & responseString)
+                Return
+            End If
             OpDate = responseValues(Fields.OpDate).FromSecoaDateTime()
             OpName = responseValues(Fields.OpName).FromAsciiHex()
             OpQty = responseValues(Fields.OpQty)
             OpConcept = responseValues(Fields.OpConcept).FromAsciiHex()
             OpCounter = responseValues(Fields.OpCounter).FromAsciiHex()
             OpAmount = responseValues(Fields.OpAmount)
-            OpType = responseValues(Fields.OpType)
+            OpType = responseValues(Fields.OpType).ToSecoaOpType()
             OpTransId = responseValues(Fields.OpTransId)
             OpStoreId = responseValues(Fields.OpStoreId)
         End Sub

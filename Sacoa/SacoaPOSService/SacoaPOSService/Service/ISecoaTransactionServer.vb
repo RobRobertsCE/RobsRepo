@@ -5,9 +5,9 @@ Namespace Service
 
     Public Interface ISecoaTransactionServer
 
-        Sub SendCommandAsync(command As ISecoaCommand, callback As SecoaResponseDelegate)
+        Sub SendCommandAsync(command As ISecoaCommand, callback As SacoaResponseDelegate)
 
-        Function SendCommand(command As ISecoaCommand) As ISecoaResponse
+        Function SendCommand(command As ISecoaCommand) As ISacoaResponse
 
     End Interface
 

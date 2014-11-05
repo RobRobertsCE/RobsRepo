@@ -4,7 +4,8 @@
         Inherits SecoaCardNumberCommand
 
         Private Enum Fields
-            DesiredRecords = 2
+            CardNumber = 2
+            DesiredRecords = 3
         End Enum
 
         Public Property DesiredRecords As Integer
@@ -20,7 +21,7 @@
         End Sub
 
         Public Overrides Function BuildCommand() As String
-            Return MyBase.FormatCommand(DesiredRecords)
+            Return MyBase.FormatCommand(CardNumber, DesiredRecords)
         End Function
 
     End Class
