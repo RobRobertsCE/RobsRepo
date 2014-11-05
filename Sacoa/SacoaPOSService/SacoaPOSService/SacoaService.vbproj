@@ -108,7 +108,7 @@
     <Compile Include="Service\FileTransactionServer.vb" />
     <Compile Include="Service\ISacoaTransactionServer.vb" />
     <Compile Include="Service\SacoaService.vb" />
-    <Compile Include="Service\SacoaResponseDelegate.vb" />
+    <Compile Include="Responses\SacoaResponseDelegate.vb" />
     <Compile Include="Service\TcpTransactionServer.vb" />
     <Compile Include="Service\TransactionServer.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
