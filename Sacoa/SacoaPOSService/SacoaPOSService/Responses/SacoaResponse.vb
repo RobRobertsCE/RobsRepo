@@ -1,4 +1,6 @@
-﻿Namespace Response
+﻿Imports SacoaInterface.My.Resources
+
+Namespace Response
 
     Public MustInherit Class SacoaResponseBase
         Implements ISacoaResponse
@@ -29,7 +31,7 @@
         Protected Friend Overridable Sub ParseResponse(responseValues As String())
             _responseState = responseValues(0).Trim()
             _responseName = responseValues(1).Trim()
-            If (ResponseState = "ERROR") Then
+            If (ResponseState = _ERROR) Then
                 Throw New InvalidOperationException(String.Format("{0}: {1}", _responseName, responseValues(2)))
             End If
         End Sub

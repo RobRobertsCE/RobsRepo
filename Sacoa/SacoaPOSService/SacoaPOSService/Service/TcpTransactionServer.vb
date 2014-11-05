@@ -1,5 +1,6 @@
 ﻿Imports System.Net
 Imports System.IO
+Imports SacoaInterface.My.Resources
 Imports SacoaInterface.Request
 Imports System.Net.Sockets
 Imports System.Text
@@ -78,7 +79,7 @@ Namespace Service
                             responseData = messageBuilder.ToString()
                             Console.WriteLine(("Rx : " + responseData))
                         Else
-                            Console.WriteLine("Could not read from the NetworkStream.")
+                            Throw New SocketException(Could_not_read_from_the_NetworkStream_)
                         End If
                     End Using
                 End Using
@@ -89,4 +90,4 @@ Namespace Service
 #End Region
 
     End Class
-End NameSpace
+End Namespace

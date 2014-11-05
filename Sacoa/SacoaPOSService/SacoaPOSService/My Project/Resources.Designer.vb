@@ -61,11 +61,74 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to ERROR.
+        '''</summary>
+        Friend ReadOnly Property _ERROR() As String
+            Get
+                Return ResourceManager.GetString("_ERROR", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Could not read from the NetworkStream..
+        '''</summary>
+        Friend ReadOnly Property Could_not_read_from_the_NetworkStream_() As String
+            Get
+                Return ResourceManager.GetString("Could_not_read_from_the_NetworkStream_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Did not receive valid response from Sacoa..
+        '''</summary>
+        Friend ReadOnly Property Did_not_receive_valid_response_from_Sacoa_() As String
+            Get
+                Return ResourceManager.GetString("Did_not_receive_valid_response_from_Sacoa_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Error sending request: {0}.
+        '''</summary>
+        Friend ReadOnly Property Error_sending_request___0_() As String
+            Get
+                Return ResourceManager.GetString("Error_sending_request___0_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Invalid Data: {0}.
         '''</summary>
         Friend ReadOnly Property Invalid_Data___0_() As String
             Get
                 Return ResourceManager.GetString("Invalid_Data___0_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to UNKNOWN CARD STATUS: {0}.
+        '''</summary>
+        Friend ReadOnly Property UNKNOWN_CARD_STATUS___0_() As String
+            Get
+                Return ResourceManager.GetString("UNKNOWN_CARD_STATUS___0_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to UNKNOWN TICKET TYPE: {0}.
+        '''</summary>
+        Friend ReadOnly Property UNKNOWN_TICKET_TYPE___0_() As String
+            Get
+                Return ResourceManager.GetString("UNKNOWN_TICKET_TYPE___0_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Unrecognized OpType: {0}.
+        '''</summary>
+        Friend ReadOnly Property Unrecognized_OpType___0_() As String
+            Get
+                Return ResourceManager.GetString("Unrecognized_OpType___0_", resourceCulture)
             End Get
         End Property
     End Module

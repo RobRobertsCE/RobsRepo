@@ -1,5 +1,6 @@
 ﻿Imports System.Globalization
 Imports System.Runtime.CompilerServices
+Imports SacoaInterface.My.Resources
 
 Module SacoaConverterExtensions
 
@@ -94,7 +95,7 @@ Module SacoaConverterExtensions
             Case SacoaCardStatus.LeaveAsIs
                 returnValue = "X"
             Case Else
-                returnValue = "UNKNOWN CARD STATUS: " & cardStatus.ToString()
+                returnValue = String.Format(UNKNOWN_CARD_STATUS___0_, cardStatus.ToString())
         End Select
         Return returnValue
     End Function
@@ -121,7 +122,7 @@ Module SacoaConverterExtensions
             Case SacoaTicketType.Virtual
                 returnValue = "V"
             Case Else
-                returnValue = "UNKNOWN TICKET TYPE: " & ticketType.ToString()
+                returnValue = String.Format(UNKNOWN_TICKET_TYPE___0_, ticketType.ToString())
         End Select
         Return returnValue
     End Function
@@ -141,11 +142,9 @@ Module SacoaConverterExtensions
         Try
             o = [Enum].Parse(GetType(SacoaOpType), opType)
         Catch ex As Exception
-            Console.WriteLine("New OpType: " & opType.ToString())
+            Throw New ArgumentException(String.Format(Unrecognized_OpType___0_, opType.ToString()), opType, ex)
         End Try
         Return o
-
-
     End Function
     <Extension()>
     Public Function FromSacoaOpType(opType As SacoaChildStatus) As String

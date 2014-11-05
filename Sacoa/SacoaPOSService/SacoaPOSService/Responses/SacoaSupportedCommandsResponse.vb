@@ -1,4 +1,5 @@
-﻿Imports SacoaInterface.Logic
+﻿Imports SacoaInterface.My.Resources
+Imports SacoaInterface.Logic
 
 Namespace Response
 
@@ -37,7 +38,7 @@ Namespace Response
             Dim OpLineCount = CInt(responseValues(Fields.OpCountField))
 
             If (responseValues.Count - 1 <> OpLineCount + Fields.OpCountField) Then
-                Throw New InvalidOperationException("Did not receive valid response from Sacoa.")
+                Throw New InvalidOperationException(Did_not_receive_valid_response_from_Sacoa_)
             End If
 
             If Not (responseValues(startingValueIndex).StartsWith(ParamStartTag)) Then

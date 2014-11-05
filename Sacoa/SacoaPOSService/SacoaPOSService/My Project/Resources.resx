@@ -117,4 +117,25 @@
   <data name="Invalid_Data___0_" xml:space="preserve">
     <value>Invalid Data: {0}</value>
   </data>
+  <data name="UNKNOWN_CARD_STATUS___0_" xml:space="preserve">
+    <value>UNKNOWN CARD STATUS: {0}</value>
+  </data>
+  <data name="UNKNOWN_TICKET_TYPE___0_" xml:space="preserve">
+    <value>UNKNOWN TICKET TYPE: {0}</value>
+  </data>
+  <data name="Unrecognized_OpType___0_" xml:space="preserve">
+    <value>Unrecognized OpType: {0}</value>
+  </data>
+  <data name="_ERROR" xml:space="preserve">
+    <value>ERROR</value>
+  </data>
+  <data name="Did_not_receive_valid_response_from_Sacoa_" xml:space="preserve">
+    <value>Did not receive valid response from Sacoa.</value>
+  </data>
+  <data name="Could_not_read_from_the_NetworkStream_" xml:space="preserve">
+    <value>Could not read from the NetworkStream.</value>
+  </data>
+  <data name="Error_sending_request___0_" xml:space="preserve">
+    <value>Error sending request: {0}</value>
+  </data>
 </root>

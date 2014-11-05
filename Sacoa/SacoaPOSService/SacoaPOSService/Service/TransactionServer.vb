@@ -1,4 +1,5 @@
-﻿Imports SacoaInterface.Response
+﻿Imports SacoaInterface.My.Resources
+Imports SacoaInterface.Response
 Imports SacoaInterface.Request
 Imports System.Threading
 
@@ -32,7 +33,7 @@ Namespace Service
                 Dim commandThread As New Thread(Sub() SendAsync(request, callback))
                 commandThread.Start()
             Catch ex As Exception
-                Throw New Exception("Error sending request: " & ex.Message)
+                Throw New Exception(String.Format(Error_sending_request___0_, ex.Message))
             End Try
         End Sub
 
@@ -46,7 +47,7 @@ Namespace Service
             Try
                 Return Send(request)
             Catch ex As Exception
-                Throw New Exception("Error sending request: " & ex.Message)
+                Throw New Exception(String.Format(Error_sending_request___0_, ex.Message))
             End Try
         End Function
 
@@ -109,4 +110,4 @@ Namespace Service
 #End Region
 
     End Class
-End NameSpace
+End Namespace
