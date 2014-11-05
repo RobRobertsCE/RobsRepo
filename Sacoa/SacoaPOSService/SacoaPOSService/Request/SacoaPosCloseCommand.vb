@@ -1,11 +1,11 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaVersionCommand
-        Inherits SacoaCommand
+    Public Class SacoaPosCloseRequest
+        Inherits SacoaRequestBase
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "VERSION"
+                Return "POS CLOSE"
             End Get
         End Property
 
@@ -16,5 +16,4 @@
     End Class
 
 End Namespace
-
 

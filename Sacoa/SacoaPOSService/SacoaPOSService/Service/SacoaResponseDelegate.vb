@@ -1,4 +1,4 @@
-﻿Imports SacoaPOSService.Responses
+﻿Imports SacoaService.Responses
 
 ''' <summary>
 ''' Delegate for handling a response from the SacoaService

@@ -23,6 +23,29 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnRecharge = New System.Windows.Forms.Button()
+        Me.btnSale = New System.Windows.Forms.Button()
+        Me.btnSet = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtOldPassports = New System.Windows.Forms.TextBox()
+        Me.txtCardCharge = New System.Windows.Forms.TextBox()
+        Me.txtMoneyPaid = New System.Windows.Forms.TextBox()
+        Me.txtMinutes = New System.Windows.Forms.TextBox()
+        Me.txtStatus = New System.Windows.Forms.TextBox()
+        Me.txtCourtesy = New System.Windows.Forms.TextBox()
+        Me.txtBonus = New System.Windows.Forms.TextBox()
+        Me.txtCredits = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtCard = New System.Windows.Forms.TextBox()
+        Me.txtRemoveTicketCount = New System.Windows.Forms.TextBox()
+        Me.txtAddTicketCount = New System.Windows.Forms.TextBox()
         Me.btnTicketsRmv = New System.Windows.Forms.Button()
         Me.btnAddTickets = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -46,35 +69,12 @@ Partial Class Form1
         Me.btnTestParseCardDataResponse = New System.Windows.Forms.Button()
         Me.btnSendCardDataRequest = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnSendCommandListResuestAsync = New System.Windows.Forms.Button()
+        Me.btnSendCommandListRequestAsync = New System.Windows.Forms.Button()
         Me.btnTestResponse = New System.Windows.Forms.Button()
-        Me.btnSendCommandListResuest = New System.Windows.Forms.Button()
+        Me.btnSendCommandListRequest = New System.Windows.Forms.Button()
         Me.chkIncludeHandlerInfo = New System.Windows.Forms.CheckBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.txtDisplay = New System.Windows.Forms.TextBox()
-        Me.txtAddTicketCount = New System.Windows.Forms.TextBox()
-        Me.txtRemoveTicketCount = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtCard = New System.Windows.Forms.TextBox()
-        Me.txtCredits = New System.Windows.Forms.TextBox()
-        Me.txtBonus = New System.Windows.Forms.TextBox()
-        Me.txtCourtesy = New System.Windows.Forms.TextBox()
-        Me.txtStatus = New System.Windows.Forms.TextBox()
-        Me.txtMinutes = New System.Windows.Forms.TextBox()
-        Me.txtMoneyPaid = New System.Windows.Forms.TextBox()
-        Me.txtCardCharge = New System.Windows.Forms.TextBox()
-        Me.txtOldPassports = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.btnSet = New System.Windows.Forms.Button()
-        Me.btnSale = New System.Windows.Forms.Button()
-        Me.btnRecharge = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -119,6 +119,192 @@ Partial Class Form1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(888, 312)
         Me.Panel1.TabIndex = 0
+        '
+        'btnRecharge
+        '
+        Me.btnRecharge.Location = New System.Drawing.Point(816, 280)
+        Me.btnRecharge.Name = "btnRecharge"
+        Me.btnRecharge.Size = New System.Drawing.Size(64, 24)
+        Me.btnRecharge.TabIndex = 32
+        Me.btnRecharge.Text = "Recharge"
+        Me.btnRecharge.UseVisualStyleBackColor = True
+        '
+        'btnSale
+        '
+        Me.btnSale.Location = New System.Drawing.Point(752, 280)
+        Me.btnSale.Name = "btnSale"
+        Me.btnSale.Size = New System.Drawing.Size(64, 24)
+        Me.btnSale.TabIndex = 31
+        Me.btnSale.Text = "Sale"
+        Me.btnSale.UseVisualStyleBackColor = True
+        '
+        'btnSet
+        '
+        Me.btnSet.Location = New System.Drawing.Point(688, 280)
+        Me.btnSet.Name = "btnSet"
+        Me.btnSet.Size = New System.Drawing.Size(64, 24)
+        Me.btnSet.TabIndex = 30
+        Me.btnSet.Text = "Set"
+        Me.btnSet.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(680, 264)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(72, 13)
+        Me.Label13.TabIndex = 29
+        Me.Label13.Text = "Old Passports"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(688, 240)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(66, 13)
+        Me.Label12.TabIndex = 28
+        Me.Label12.Text = "Card Charge"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(688, 216)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(63, 13)
+        Me.Label11.TabIndex = 27
+        Me.Label11.Text = "Money Paid"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(704, 192)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(44, 13)
+        Me.Label10.TabIndex = 26
+        Me.Label10.Text = "Minutes"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(712, 168)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(37, 13)
+        Me.Label9.TabIndex = 25
+        Me.Label9.Text = "Status"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(704, 144)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(48, 13)
+        Me.Label8.TabIndex = 24
+        Me.Label8.Text = "Courtesy"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(712, 120)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(37, 13)
+        Me.Label7.TabIndex = 23
+        Me.Label7.Text = "Bonus"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(712, 96)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(39, 13)
+        Me.Label6.TabIndex = 22
+        Me.Label6.Text = "Credits"
+        '
+        'txtOldPassports
+        '
+        Me.txtOldPassports.Location = New System.Drawing.Point(760, 256)
+        Me.txtOldPassports.Name = "txtOldPassports"
+        Me.txtOldPassports.Size = New System.Drawing.Size(100, 20)
+        Me.txtOldPassports.TabIndex = 21
+        '
+        'txtCardCharge
+        '
+        Me.txtCardCharge.Location = New System.Drawing.Point(760, 232)
+        Me.txtCardCharge.Name = "txtCardCharge"
+        Me.txtCardCharge.Size = New System.Drawing.Size(100, 20)
+        Me.txtCardCharge.TabIndex = 20
+        '
+        'txtMoneyPaid
+        '
+        Me.txtMoneyPaid.Location = New System.Drawing.Point(760, 208)
+        Me.txtMoneyPaid.Name = "txtMoneyPaid"
+        Me.txtMoneyPaid.Size = New System.Drawing.Size(100, 20)
+        Me.txtMoneyPaid.TabIndex = 19
+        '
+        'txtMinutes
+        '
+        Me.txtMinutes.Location = New System.Drawing.Point(760, 184)
+        Me.txtMinutes.Name = "txtMinutes"
+        Me.txtMinutes.Size = New System.Drawing.Size(100, 20)
+        Me.txtMinutes.TabIndex = 18
+        '
+        'txtStatus
+        '
+        Me.txtStatus.Location = New System.Drawing.Point(760, 160)
+        Me.txtStatus.Name = "txtStatus"
+        Me.txtStatus.Size = New System.Drawing.Size(100, 20)
+        Me.txtStatus.TabIndex = 17
+        '
+        'txtCourtesy
+        '
+        Me.txtCourtesy.Location = New System.Drawing.Point(760, 136)
+        Me.txtCourtesy.Name = "txtCourtesy"
+        Me.txtCourtesy.Size = New System.Drawing.Size(100, 20)
+        Me.txtCourtesy.TabIndex = 16
+        '
+        'txtBonus
+        '
+        Me.txtBonus.Location = New System.Drawing.Point(760, 112)
+        Me.txtBonus.Name = "txtBonus"
+        Me.txtBonus.Size = New System.Drawing.Size(100, 20)
+        Me.txtBonus.TabIndex = 15
+        '
+        'txtCredits
+        '
+        Me.txtCredits.Location = New System.Drawing.Point(760, 88)
+        Me.txtCredits.Name = "txtCredits"
+        Me.txtCredits.Size = New System.Drawing.Size(100, 20)
+        Me.txtCredits.TabIndex = 14
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(720, 12)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(39, 13)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "Card #"
+        '
+        'txtCard
+        '
+        Me.txtCard.Location = New System.Drawing.Point(760, 8)
+        Me.txtCard.Name = "txtCard"
+        Me.txtCard.Size = New System.Drawing.Size(96, 20)
+        Me.txtCard.TabIndex = 12
+        Me.txtCard.Text = "123"
+        '
+        'txtRemoveTicketCount
+        '
+        Me.txtRemoveTicketCount.Location = New System.Drawing.Point(760, 64)
+        Me.txtRemoveTicketCount.Name = "txtRemoveTicketCount"
+        Me.txtRemoveTicketCount.Size = New System.Drawing.Size(100, 20)
+        Me.txtRemoveTicketCount.TabIndex = 11
+        '
+        'txtAddTicketCount
+        '
+        Me.txtAddTicketCount.Location = New System.Drawing.Point(760, 40)
+        Me.txtAddTicketCount.Name = "txtAddTicketCount"
+        Me.txtAddTicketCount.Size = New System.Drawing.Size(100, 20)
+        Me.txtAddTicketCount.TabIndex = 10
         '
         'btnTicketsRmv
         '
@@ -336,9 +522,9 @@ Partial Class Form1
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btnSendCommandListResuestAsync)
+        Me.GroupBox1.Controls.Add(Me.btnSendCommandListRequestAsync)
         Me.GroupBox1.Controls.Add(Me.btnTestResponse)
-        Me.GroupBox1.Controls.Add(Me.btnSendCommandListResuest)
+        Me.GroupBox1.Controls.Add(Me.btnSendCommandListRequest)
         Me.GroupBox1.Controls.Add(Me.chkIncludeHandlerInfo)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
@@ -348,14 +534,14 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Command List"
         '
-        'btnSendCommandListResuestAsync
+        'btnSendCommandListRequestAsync
         '
-        Me.btnSendCommandListResuestAsync.Location = New System.Drawing.Point(88, 88)
-        Me.btnSendCommandListResuestAsync.Name = "btnSendCommandListResuestAsync"
-        Me.btnSendCommandListResuestAsync.Size = New System.Drawing.Size(72, 24)
-        Me.btnSendCommandListResuestAsync.TabIndex = 1
-        Me.btnSendCommandListResuestAsync.Text = "Send Async"
-        Me.btnSendCommandListResuestAsync.UseVisualStyleBackColor = True
+        Me.btnSendCommandListRequestAsync.Location = New System.Drawing.Point(88, 88)
+        Me.btnSendCommandListRequestAsync.Name = "btnSendCommandListRequestAsync"
+        Me.btnSendCommandListRequestAsync.Size = New System.Drawing.Size(72, 24)
+        Me.btnSendCommandListRequestAsync.TabIndex = 1
+        Me.btnSendCommandListRequestAsync.Text = "Send Async"
+        Me.btnSendCommandListRequestAsync.UseVisualStyleBackColor = True
         '
         'btnTestResponse
         '
@@ -366,14 +552,14 @@ Partial Class Form1
         Me.btnTestResponse.Text = "Test Response Parsing"
         Me.btnTestResponse.UseVisualStyleBackColor = True
         '
-        'btnSendCommandListResuest
+        'btnSendCommandListRequest
         '
-        Me.btnSendCommandListResuest.Location = New System.Drawing.Point(8, 88)
-        Me.btnSendCommandListResuest.Name = "btnSendCommandListResuest"
-        Me.btnSendCommandListResuest.Size = New System.Drawing.Size(72, 24)
-        Me.btnSendCommandListResuest.TabIndex = 0
-        Me.btnSendCommandListResuest.Text = "Send"
-        Me.btnSendCommandListResuest.UseVisualStyleBackColor = True
+        Me.btnSendCommandListRequest.Location = New System.Drawing.Point(8, 88)
+        Me.btnSendCommandListRequest.Name = "btnSendCommandListRequest"
+        Me.btnSendCommandListRequest.Size = New System.Drawing.Size(72, 24)
+        Me.btnSendCommandListRequest.TabIndex = 0
+        Me.btnSendCommandListRequest.Text = "Send"
+        Me.btnSendCommandListRequest.UseVisualStyleBackColor = True
         '
         'chkIncludeHandlerInfo
         '
@@ -405,192 +591,6 @@ Partial Class Form1
         Me.txtDisplay.Size = New System.Drawing.Size(878, 231)
         Me.txtDisplay.TabIndex = 0
         '
-        'txtAddTicketCount
-        '
-        Me.txtAddTicketCount.Location = New System.Drawing.Point(760, 40)
-        Me.txtAddTicketCount.Name = "txtAddTicketCount"
-        Me.txtAddTicketCount.Size = New System.Drawing.Size(100, 20)
-        Me.txtAddTicketCount.TabIndex = 10
-        '
-        'txtRemoveTicketCount
-        '
-        Me.txtRemoveTicketCount.Location = New System.Drawing.Point(760, 64)
-        Me.txtRemoveTicketCount.Name = "txtRemoveTicketCount"
-        Me.txtRemoveTicketCount.Size = New System.Drawing.Size(100, 20)
-        Me.txtRemoveTicketCount.TabIndex = 11
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(720, 12)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(39, 13)
-        Me.Label5.TabIndex = 13
-        Me.Label5.Text = "Card #"
-        '
-        'txtCard
-        '
-        Me.txtCard.Location = New System.Drawing.Point(760, 8)
-        Me.txtCard.Name = "txtCard"
-        Me.txtCard.Size = New System.Drawing.Size(96, 20)
-        Me.txtCard.TabIndex = 12
-        Me.txtCard.Text = "123"
-        '
-        'txtCredits
-        '
-        Me.txtCredits.Location = New System.Drawing.Point(760, 88)
-        Me.txtCredits.Name = "txtCredits"
-        Me.txtCredits.Size = New System.Drawing.Size(100, 20)
-        Me.txtCredits.TabIndex = 14
-        '
-        'txtBonus
-        '
-        Me.txtBonus.Location = New System.Drawing.Point(760, 112)
-        Me.txtBonus.Name = "txtBonus"
-        Me.txtBonus.Size = New System.Drawing.Size(100, 20)
-        Me.txtBonus.TabIndex = 15
-        '
-        'txtCourtesy
-        '
-        Me.txtCourtesy.Location = New System.Drawing.Point(760, 136)
-        Me.txtCourtesy.Name = "txtCourtesy"
-        Me.txtCourtesy.Size = New System.Drawing.Size(100, 20)
-        Me.txtCourtesy.TabIndex = 16
-        '
-        'txtStatus
-        '
-        Me.txtStatus.Location = New System.Drawing.Point(760, 160)
-        Me.txtStatus.Name = "txtStatus"
-        Me.txtStatus.Size = New System.Drawing.Size(100, 20)
-        Me.txtStatus.TabIndex = 17
-        '
-        'txtMinutes
-        '
-        Me.txtMinutes.Location = New System.Drawing.Point(760, 184)
-        Me.txtMinutes.Name = "txtMinutes"
-        Me.txtMinutes.Size = New System.Drawing.Size(100, 20)
-        Me.txtMinutes.TabIndex = 18
-        '
-        'txtMoneyPaid
-        '
-        Me.txtMoneyPaid.Location = New System.Drawing.Point(760, 208)
-        Me.txtMoneyPaid.Name = "txtMoneyPaid"
-        Me.txtMoneyPaid.Size = New System.Drawing.Size(100, 20)
-        Me.txtMoneyPaid.TabIndex = 19
-        '
-        'txtCardCharge
-        '
-        Me.txtCardCharge.Location = New System.Drawing.Point(760, 232)
-        Me.txtCardCharge.Name = "txtCardCharge"
-        Me.txtCardCharge.Size = New System.Drawing.Size(100, 20)
-        Me.txtCardCharge.TabIndex = 20
-        '
-        'txtOldPassports
-        '
-        Me.txtOldPassports.Location = New System.Drawing.Point(760, 256)
-        Me.txtOldPassports.Name = "txtOldPassports"
-        Me.txtOldPassports.Size = New System.Drawing.Size(100, 20)
-        Me.txtOldPassports.TabIndex = 21
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(712, 96)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(39, 13)
-        Me.Label6.TabIndex = 22
-        Me.Label6.Text = "Credits"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(712, 120)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(37, 13)
-        Me.Label7.TabIndex = 23
-        Me.Label7.Text = "Bonus"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(704, 144)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(48, 13)
-        Me.Label8.TabIndex = 24
-        Me.Label8.Text = "Courtesy"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(712, 168)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(37, 13)
-        Me.Label9.TabIndex = 25
-        Me.Label9.Text = "Status"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(704, 192)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(44, 13)
-        Me.Label10.TabIndex = 26
-        Me.Label10.Text = "Minutes"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(688, 216)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(63, 13)
-        Me.Label11.TabIndex = 27
-        Me.Label11.Text = "Money Paid"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(688, 240)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(66, 13)
-        Me.Label12.TabIndex = 28
-        Me.Label12.Text = "Card Charge"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(680, 264)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(72, 13)
-        Me.Label13.TabIndex = 29
-        Me.Label13.Text = "Old Passports"
-        '
-        'btnSet
-        '
-        Me.btnSet.Location = New System.Drawing.Point(688, 280)
-        Me.btnSet.Name = "btnSet"
-        Me.btnSet.Size = New System.Drawing.Size(64, 24)
-        Me.btnSet.TabIndex = 30
-        Me.btnSet.Text = "Set"
-        Me.btnSet.UseVisualStyleBackColor = True
-        '
-        'btnSale
-        '
-        Me.btnSale.Location = New System.Drawing.Point(752, 280)
-        Me.btnSale.Name = "btnSale"
-        Me.btnSale.Size = New System.Drawing.Size(64, 24)
-        Me.btnSale.TabIndex = 31
-        Me.btnSale.Text = "Sale"
-        Me.btnSale.UseVisualStyleBackColor = True
-        '
-        'btnRecharge
-        '
-        Me.btnRecharge.Location = New System.Drawing.Point(816, 280)
-        Me.btnRecharge.Name = "btnRecharge"
-        Me.btnRecharge.Size = New System.Drawing.Size(64, 24)
-        Me.btnRecharge.TabIndex = 32
-        Me.btnRecharge.Text = "Recharge"
-        Me.btnRecharge.UseVisualStyleBackColor = True
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -618,8 +618,8 @@ Partial Class Form1
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents txtDisplay As System.Windows.Forms.TextBox
-    Friend WithEvents btnSendCommandListResuest As System.Windows.Forms.Button
-    Friend WithEvents btnSendCommandListResuestAsync As System.Windows.Forms.Button
+    Friend WithEvents btnSendCommandListRequest As System.Windows.Forms.Button
+    Friend WithEvents btnSendCommandListRequestAsync As System.Windows.Forms.Button
     Friend WithEvents chkIncludeHandlerInfo As System.Windows.Forms.CheckBox
     Friend WithEvents btnTestResponse As System.Windows.Forms.Button
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox

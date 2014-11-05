@@ -1,11 +1,11 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaCardRoamCommand
-        Inherits SacoaCardNumberCommand
+    Public Class SacoaVersionRequest
+        Inherits SacoaRequestBase
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARD ROAM"
+                Return "VERSION"
             End Get
         End Property
 

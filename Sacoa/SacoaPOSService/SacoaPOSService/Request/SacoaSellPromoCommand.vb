@@ -1,7 +1,7 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaSellPromoCommand
-        Inherits SacoaCardCommand
+    Public Class SacoaSellPromoRequest
+        Inherits SacoaCardRequestBase
 
         Public Property PayModeName As String
         Public Property PayModeId As String
@@ -9,7 +9,7 @@
         Public Property SaleModeId As String
         Public Property Invoice As String
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
                 Return "SELL PROMO"
             End Get
@@ -19,8 +19,8 @@
             MyBase.New(posId, empId)
         End Sub
 
-        Public Overrides Function BuildCommand() As String
-            Return MyBase.FormatCommand(CardRange, Credits, Bonus, Courtesy, Bonus, Status, Minutes, MoneyPaid, CardCharge, OldPassports,
+        Public Overrides Function BuildRequest() As String
+            Return MyBase.FormatRequest(CardRange, Credits, Bonus, Courtesy, Bonus, Status, Minutes, MoneyPaid, CardCharge, OldPassports,
                                         PayModeName, PayModeId, ProdQty, SaleModeId, Invoice)
         End Function
 

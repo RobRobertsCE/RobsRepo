@@ -1,11 +1,11 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaCardSaleCommand
-        Inherits SacoaCardCommand
+    Public Class SacoaCardRefundRequest
+        Inherits SacoaCardRequestBase
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARD SALE"
+                Return "CARD REFUND"
             End Get
         End Property
 

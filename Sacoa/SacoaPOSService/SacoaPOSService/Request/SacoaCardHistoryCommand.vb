@@ -1,7 +1,7 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaCardHistoryCommand
-        Inherits SacoaCardNumberCommand
+    Public Class SacoaCardHistoryRequest
+        Inherits SacoaCardNumberRequest
 
         Private Enum Fields
             CardNumber = 2
@@ -10,7 +10,7 @@
 
         Public Property DesiredRecords As Integer
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
                 Return "CARD HISTORY"
             End Get
@@ -20,8 +20,8 @@
             MyBase.New(posId, empId)
         End Sub
 
-        Public Overrides Function BuildCommand() As String
-            Return MyBase.FormatCommand(CardNumber, DesiredRecords)
+        Public Overrides Function BuildRequest() As String
+            Return MyBase.FormatRequest(CardNumber, DesiredRecords)
         End Function
 
     End Class

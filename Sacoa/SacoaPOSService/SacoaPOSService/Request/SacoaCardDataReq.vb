@@ -1,11 +1,11 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaPosCloseCommand
-        Inherits SacoaCommand
+    Public Class SacoaCardDataRequest
+        Inherits SacoaCardNumberRequest
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "POS CLOSE"
+                Return "CARD DATA"
             End Get
         End Property
 
@@ -16,4 +16,3 @@
     End Class
 
 End Namespace
-

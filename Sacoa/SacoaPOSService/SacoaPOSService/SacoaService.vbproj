@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5BF8CBCF-FE7A-4BFC-AF68-16998F17843B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SacoaPOSService</RootNamespace>
-    <AssemblyName>SacoaPOSService</AssemblyName>
+    <RootNamespace>SacoaService</RootNamespace>
+    <AssemblyName>SacoaService</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -18,7 +18,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>SacoaPOSService.xml</DocumentationFile>
+    <DocumentationFile>SacoaService.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -27,7 +27,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>SacoaPOSService.xml</DocumentationFile>
+    <DocumentationFile>SacoaService.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -65,31 +65,31 @@
     <Compile Include="SacoaChildStatus.vb" />
     <Compile Include="SacoaCommon.vb" />
     <Compile Include="SacoaConverterExtensions.vb" />
-    <Compile Include="Commands\SacoaCardCommand.vb" />
-    <Compile Include="Commands\SacoaCardHistoryCommand.vb" />
-    <Compile Include="Commands\SacoaCardNumberCommand.vb" />
-    <Compile Include="Commands\SacoaCardRefundCommand.vb" />
-    <Compile Include="Commands\ISacoaCommand.vb" />
-    <Compile Include="Commands\SacoaCardDataCommand.vb" />
-    <Compile Include="Commands\SacoaCardDebitCommand.vb" />
-    <Compile Include="Commands\SacoaCardDecodeCommand.vb" />
-    <Compile Include="Commands\SacoaCardRechargeCommand.vb" />
-    <Compile Include="Commands\SacoaCardRoamCommand.vb" />
-    <Compile Include="Commands\SacoaCardSaleCommand.vb" />
-    <Compile Include="Commands\SacoaCardsConsolidateCommand.vb" />
-    <Compile Include="Commands\SacoaCardSetChildCommand.vb" />
-    <Compile Include="Commands\SacoaCardSetCommand.vb" />
-    <Compile Include="Commands\SacoaCardTransferCommand.vb" />
-    <Compile Include="Commands\SacoaCommand.vb" />
-    <Compile Include="Commands\SacoaDelayedRechargeCommand.vb" />
-    <Compile Include="Commands\SacoaPosCloseCommand.vb" />
-    <Compile Include="Commands\SacoaPosOpenCommand.vb" />
-    <Compile Include="Commands\SacoaSellPromoCommand.vb" />
-    <Compile Include="Commands\SacoaSupportedCommandsCommand.vb" />
-    <Compile Include="Commands\SacoaTicketsAddCommand.vb" />
-    <Compile Include="Commands\SacoaTicketSetTypeCommand.vb" />
-    <Compile Include="Commands\SacoaTicketsRemoveCommand.vb" />
-    <Compile Include="Commands\SacoaVersionCommand.vb" />
+    <Compile Include="Request\SacoaCardRequestBase.vb" />
+    <Compile Include="Request\SacoaCardHistoryCommand.vb" />
+    <Compile Include="Request\SacoaCardNumberCommand.vb" />
+    <Compile Include="Request\SacoaCardRefundCommand.vb" />
+    <Compile Include="Request\ISacoaRequest.vb" />
+    <Compile Include="Request\SacoaCardDataReq.vb" />
+    <Compile Include="Request\SacoaCardDebitRequest.vb" />
+    <Compile Include="Request\SacoaCardDecodeCommand.vb" />
+    <Compile Include="Request\SacoaCardRechargeCommand.vb" />
+    <Compile Include="Request\SacoaCardRoamCommand.vb" />
+    <Compile Include="Request\SacoaCardSaleCommand.vb" />
+    <Compile Include="Request\SacoaCardsConsolidateCommand.vb" />
+    <Compile Include="Request\SacoaCardSetChildCommand.vb" />
+    <Compile Include="Request\SacoaCardSetCommand.vb" />
+    <Compile Include="Request\SacoaCardTransferCommand.vb" />
+    <Compile Include="Request\SacoaRequest.vb" />
+    <Compile Include="Request\SacoaDelayedRechargeCommand.vb" />
+    <Compile Include="Request\SacoaPosCloseCommand.vb" />
+    <Compile Include="Request\SacoaPosOpenCommand.vb" />
+    <Compile Include="Request\SacoaSellPromoCommand.vb" />
+    <Compile Include="Request\SacoaSupportedCommandsCommand.vb" />
+    <Compile Include="Request\SacoaTicketsAddCommand.vb" />
+    <Compile Include="Request\SacoaTicketSetTypeCommand.vb" />
+    <Compile Include="Request\SacoaTicketsRemoveCommand.vb" />
+    <Compile Include="Request\SacoaVersionCommand.vb" />
     <Compile Include="Logic\SacoaCardHistory.vb" />
     <Compile Include="Logic\SacoaOpDescription.vb" />
     <Compile Include="Responses\ISacoaResponse.vb" />

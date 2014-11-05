@@ -1,5 +1,5 @@
-﻿Imports SacoaPOSService.Commands
-Imports SacoaPOSService.Responses
+﻿Imports SacoaService.Request
+Imports SacoaService.Responses
 
 Namespace Service
 
@@ -39,82 +39,82 @@ Namespace Service
 
 #End Region
 
-#Region " SendCommand "
+#Region " SendRequest "
 
-        Public Function SendCommand(command As SacoaCardDataCommand) As SacoaCardDataResponse
+        Public Function SendRequest(command As SacoaCardDataRequest) As SacoaCardDataResponse
             Return Send(command)
         End Function
-        Public Function SendCommand(command As SacoaCardDebitCommand) As SacoaCardDataResponse
-            Return Send(command)
-        End Function
-
-        Public Function SendCommand(command As SacoaCardDecodeCommand) As SacoaCardDecodeResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaCardHistoryCommand) As SacoaCardHistoryResponse
+        Public Function SendRequest(command As SacoaCardDebitRequest) As SacoaCardDataResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SacoaCardRechargeCommand) As SacoaCardDataResponse
+        Public Function SendRequest(command As SacoaCardDecodeRequest) As SacoaCardDecodeResponse
             Return Send(command)
         End Function
-        Public Function SendCommand(command As SacoaCardRefundCommand) As SacoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaCardRoamCommand) As SacoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaCardSaleCommand) As SacoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaCardsConsolidateCommand) As SacoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaCardSetChildCommand) As SacoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaCardSetCommand) As SacoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaCardTransferCommand) As SacoaCardDataResponse
+        Public Function SendRequest(command As SacoaCardHistoryRequest) As SacoaCardHistoryResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SacoaDelayedRechargeCommand) As SacoaDelayedRechargeResponse
+        Public Function SendRequest(command As SacoaCardRechargeRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaCardRefundRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaCardRoamRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaCardSaleRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaCardsConsolidateRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaCardSetChildRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaCardSetRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaCardTransferRequest) As SacoaCardDataResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SacoaPosOpenCommand) As SacoaPosResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaPosCloseCommand) As SacoaPosResponse
+        Public Function SendRequest(command As SacoaDelayedRechargeRequest) As SacoaDelayedRechargeResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SacoaSellPromoCommand) As SacoaCardDataResponse
+        Public Function SendRequest(command As SacoaPosOpenRequest) As SacoaPosResponse
             Return Send(command)
         End Function
-        Public Function SendCommand(command As SacoaTicketsAddCommand) As SacoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaTicketsRemoveCommand) As SacoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SacoaTicketSetTypeCommand) As SacoaCardDataResponse
+        Public Function SendRequest(command As SacoaPosCloseRequest) As SacoaPosResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SacoaSupportedCommandsCommand) As SacoaSupportedCommandsResponse
+        Public Function SendRequest(command As SacoaSellPromoRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaTicketsAddRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaTicketsRemoveRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendRequest(command As SacoaTicketSetTypeRequest) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+
+        Public Function SendRequest(command As SacoaSupportedCommandsRequest) As SacoaSupportedCommandsResponse
             Return Send(command)
         End Function
 
 #End Region
 
-#Region " SendCommandAsync "
+#Region " SendRequestAsync "
 
-        Public Sub SendCommandAsync(command As ISacoaCommand, callback As SacoaResponseDelegate)
+        Public Sub SendRequestAsync(command As ISacoaRequest, callback As SacoaResponseDelegate)
             Try
-                GetTransactionServer().SendCommandAsync(command, callback)
+                GetTransactionServer().SendRequestAsync(command, callback)
             Catch ex As Exception
                 'TODO: Error Logging
                 Console.WriteLine(ex.ToString())
@@ -125,9 +125,9 @@ Namespace Service
 
 #Region " GetTransactionServer "
 
-        Protected Friend Overridable Function Send(command As ISacoaCommand) As ISacoaResponse
+        Protected Friend Overridable Function Send(command As ISacoaRequest) As ISacoaResponse
             Dim server = GetTransactionServer()
-            Return server.SendCommand(command)
+            Return server.SendRequest(command)
         End Function
 
         Protected Friend Overridable Function GetTransactionServer() As ISacoaTransactionServer

@@ -1,11 +1,11 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaSupportedCommandsCommand
-        Inherits SacoaCommand
+    Public Class SacoaSupportedCommandsRequest
+        Inherits SacoaRequestBase
 
         Public Property IncludeHandlerInfo As String = "Yes"
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
                 Return "SUPPORTED COMMANDS"
             End Get
@@ -15,8 +15,8 @@
             MyBase.New(posId, empId)
         End Sub
 
-        Public Overrides Function BuildCommand() As String
-            Return MyBase.FormatCommand(IncludeHandlerInfo)
+        Public Overrides Function BuildRequest() As String
+            Return MyBase.FormatRequest(IncludeHandlerInfo)
         End Function
 
     End Class

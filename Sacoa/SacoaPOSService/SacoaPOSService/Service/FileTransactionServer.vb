@@ -1,5 +1,5 @@
-﻿Imports SacoaPOSService.Commands
-Imports SacoaPOSService.Responses
+﻿Imports SacoaService.Request
+Imports SacoaService.Responses
 Imports System
 Imports System.IO
 Imports System.Text
@@ -51,15 +51,15 @@ Namespace Service
 
 #Region " GetCommandString "
 
-        Protected Friend Overrides Function GetCommandString(command As ISacoaCommand) As String
-            Return command.BuildCommand() & Environment.NewLine
+        Protected Friend Overrides Function GetRequestString(request As ISacoaRequest) As String
+            Return request.BuildRequest() & Environment.NewLine
         End Function
 
 #End Region
 
 #Region " SendSacoaCommand "
 
-        Protected Friend Overrides Function SendSacoaCommand(cmd As String) As String
+        Protected Friend Overrides Function SendSacoaRequest(cmd As String) As String
             Dim commandFileTitle As String = GetCommandFileTitle()
             CreateCommandFile(commandFileTitle, cmd)
             RenameCommandFile(commandFileTitle)

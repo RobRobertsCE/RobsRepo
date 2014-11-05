@@ -1,9 +1,9 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaCardSetCommand
-        Inherits SacoaCardCommand
+    Public Class SacoaCardSetRequest
+        Inherits SacoaCardRequestBase
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
                 Return "CARD SET"
             End Get

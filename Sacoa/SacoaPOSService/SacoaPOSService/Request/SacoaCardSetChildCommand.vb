@@ -1,12 +1,12 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaCardSetChildCommand
-        Inherits SacoaCommand
+    Public Class SacoaCardSetChildRequest
+        Inherits SacoaRequestBase
 
         Public Property CardRange As String
         Public Property ChildStatus As String
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
                 Return "CARD SET CHILD"
             End Get
@@ -16,8 +16,8 @@
             MyBase.New(posId, empId)
         End Sub
 
-        Public Overrides Function BuildCommand() As String
-            Return MyBase.FormatCommand(CardRange, ChildStatus)
+        Public Overrides Function BuildRequest() As String
+            Return MyBase.FormatRequest(CardRange, ChildStatus)
         End Function
 
     End Class

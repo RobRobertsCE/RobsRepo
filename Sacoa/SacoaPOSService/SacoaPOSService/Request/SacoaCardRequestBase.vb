@@ -1,7 +1,7 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public MustInherit Class SacoaCardCommand
-        Inherits SacoaCommand
+    Public MustInherit Class SacoaCardRequestBase
+        Inherits SacoaRequestBase
 
         Public Property CardRange As String
         Public Property Credits As String
@@ -17,8 +17,8 @@
             MyBase.New(posId, empId)
         End Sub
 
-        Public Overrides Function BuildCommand() As String
-            Return MyBase.FormatCommand(CardRange, Credits, Bonus, Courtesy, Bonus, Status, Minutes, MoneyPaid, CardCharge, OldPassports)
+        Public Overrides Function BuildRequest() As String
+            Return MyBase.FormatRequest(CardRange, Credits, Bonus, Courtesy, Bonus, Status, Minutes, MoneyPaid, CardCharge, OldPassports)
         End Function
 
     End Class

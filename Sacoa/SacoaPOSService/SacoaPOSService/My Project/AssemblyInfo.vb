@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("SacoaPOSService")> 
+<Assembly: AssemblyTitle("SacoaService")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("Microsoft")> 
-<Assembly: AssemblyProduct("SacoaPOSService")> 
+<Assembly: AssemblyProduct("SacoaService")> 
 <Assembly: AssemblyCopyright("Copyright © Microsoft 2014")> 
 <Assembly: AssemblyTrademark("")> 
 

@@ -1,5 +1,5 @@
-﻿Imports SacoaPOSService.Commands
-Imports SacoaPOSService.Responses
+﻿Imports SacoaService.Request
+Imports SacoaService.Responses
 Imports System
 Imports System.IO
 Imports System.Net
@@ -40,17 +40,17 @@ Namespace Service
 
 #End Region
 
-#Region " GetCommandString "
+#Region " GetRequestString "
 
-        Protected Friend Overrides Function GetCommandString(command As ISacoaCommand) As String
-            Return command.BuildCommand() & Environment.NewLine
+        Protected Friend Overrides Function GetRequestString(command As ISacoaRequest) As String
+            Return command.BuildRequest() & Environment.NewLine
         End Function
 
 #End Region
 
-#Region " SendSacoaCommand "
+#Region " SendSacoaRequest "
 
-        Protected Friend Overrides Function SendSacoaCommand(SacoaCommand As String) As String
+        Protected Friend Overrides Function SendSacoaRequest(SacoaRequest As String) As String
             Dim address = IPAddress.Parse(_host)
             Dim localEndPoint As New IPEndPoint(address, _port)
             Dim responseData = String.Empty
@@ -64,7 +64,7 @@ Namespace Service
                     Using clientStreamWriter As StreamWriter = New StreamWriter(networkStream)
                         '// Send Request 
                         clientStreamWriter.Flush()
-                        Dim txData As Byte() = Encoding.UTF8.GetBytes(SacoaCommand)
+                        Dim txData As Byte() = Encoding.UTF8.GetBytes(SacoaRequest)
                         networkStream.Write(txData, 0, txData.Length)
                         Thread.Sleep(3000)
                         '// Receive Response 

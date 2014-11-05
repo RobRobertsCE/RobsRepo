@@ -1,4 +1,4 @@
-﻿Imports SacoaPOSService
+﻿Imports SacoaService
 
 Public Class Form1
 
@@ -14,13 +14,13 @@ Public Class Form1
 #End Region
 
 #Region " Fields "
-    Dim service As SacoaPOSService.Service.SacoaService = Nothing
+    Dim service As SacoaService.Service.SacoaService = Nothing
 #End Region
 
 #Region " Form Load "
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            service = New SacoaPOSService.Service.SacoaService(TestPort, TestServer)
+            service = New SacoaService.Service.SacoaService(TestPort, TestServer)
 
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -46,41 +46,41 @@ Public Class Form1
     End Sub
 #End Region
 
-#Region " SacoaSupportedCommandsCommand "
+#Region " SacoaSupportedCommandsRequest "
 
-#Region " GetSacoaSupportedCommandsCommand "
-    Private Function GetSacoaSupportedCommandsCommand() As SacoaPOSService.Commands.SacoaSupportedCommandsCommand
-        Dim SacoaCommand As New SacoaPOSService.Commands.SacoaSupportedCommandsCommand(PosId, EmpId)
+#Region " GetSacoaSupportedCommandsRequest "
+    Private Function GetSacoaSupportedCommandsRequest() As SacoaService.Request.SacoaSupportedCommandsRequest
+        Dim SacoaRequest As New SacoaService.Request.SacoaSupportedCommandsRequest(PosId, EmpId)
         If chkIncludeHandlerInfo.Checked Then
-            SacoaCommand.IncludeHandlerInfo = "Yes"
+            SacoaRequest.IncludeHandlerInfo = "Yes"
         Else
-            SacoaCommand.IncludeHandlerInfo = "No"
+            SacoaRequest.IncludeHandlerInfo = "No"
         End If
-        Return SacoaCommand
+        Return SacoaRequest
     End Function
 #End Region
 
 #Region " Button Click Handlers "
-    Private Sub btnSendAsync_Click(sender As Object, e As EventArgs) Handles btnSendCommandListResuestAsync.Click
+    Private Sub btnSendAsync_Click(sender As Object, e As EventArgs) Handles btnSendCommandListRequestAsync.Click
         Try
             ClearDisplay()
 
-            Dim SacoaCommand = GetSacoaSupportedCommandsCommand()
+            Dim SacoaRequest = GetSacoaSupportedCommandsRequest()
 
-            service.SendCommandAsync(SacoaCommand, AddressOf SacoaResponseDelegate)
+            service.SendRequestAsync(SacoaRequest, AddressOf SacoaResponseDelegate)
 
         Catch ex As Exception
             ExceptionHandler(ex)
         End Try
     End Sub
 
-    Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSendCommandListResuest.Click
+    Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSendCommandListRequest.Click
         Try
             ClearDisplay()
 
-            Dim SacoaCommand = GetSacoaSupportedCommandsCommand()
+            Dim SacoaRequest = GetSacoaSupportedCommandsRequest()
 
-            Dim SacoaResponse As SacoaPOSService.Responses.SacoaSupportedCommandsResponse = service.SendCommand(SacoaCommand)
+            Dim SacoaResponse As SacoaService.Responses.SacoaSupportedCommandsResponse = service.SendRequest(SacoaRequest)
 
             DisplaySacoaSupportedCommandsResponse(SacoaResponse)
 
@@ -91,7 +91,7 @@ Public Class Form1
 
     Private Sub btnTestResponse_Click(sender As Object, e As EventArgs) Handles btnTestResponse.Click
         Try
-            Dim response As New SacoaPOSService.Responses.SacoaSupportedCommandsResponse(TestCommandListResponse)
+            Dim response As New SacoaService.Responses.SacoaSupportedCommandsResponse(TestCommandListResponse)
             DisplaySacoaSupportedCommandsResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -100,9 +100,9 @@ Public Class Form1
 #End Region
 
 #Region " SacoaResponseDelegate "
-    Public Sub SacoaResponseDelegate(e As SacoaPOSService.Responses.ISacoaResponse)
+    Public Sub SacoaResponseDelegate(e As SacoaService.Responses.ISacoaResponse)
         Try
-            Dim response As SacoaPOSService.Responses.SacoaSupportedCommandsResponse = DirectCast(e, SacoaPOSService.Responses.SacoaSupportedCommandsResponse)
+            Dim response As SacoaService.Responses.SacoaSupportedCommandsResponse = DirectCast(e, SacoaService.Responses.SacoaSupportedCommandsResponse)
             DisplaySacoaSupportedCommandsResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -111,20 +111,20 @@ Public Class Form1
 #End Region
 
 #Region " Display Response "
-    Private Sub DisplaySacoaSupportedCommandsResponse(response As SacoaPOSService.Responses.SacoaSupportedCommandsResponse)
+    Private Sub DisplaySacoaSupportedCommandsResponse(response As SacoaService.Responses.SacoaSupportedCommandsResponse)
         Try
             Display(String.Format("Response Name: {0}", response.ResponseName))
             Display(String.Format("Response Status: {0}", response.ResponseState))
 
             Dim idx As Integer = 0
-            For Each op As SacoaPOSService.Logic.SacoaOpDescription In response.OpDescriptions
+            For Each op As SacoaService.Logic.SacoaOpDescription In response.OpDescriptions
                 Display("Op #" + idx.ToString())
-                Display(String.Format("  Op Name: {0}", op.CommandName))
-                Console.WriteLine(String.Format("{0,-3}  {1,-50} Op Name: {2}", idx.ToString(), op.OpContainerName, op.CommandName))
+                Display(String.Format("  Op Name: {0}", op.RequestName))
+                Console.WriteLine(String.Format("{0,-3}  {1,-50} Op Name: {2}", idx.ToString(), op.OpContainerName, op.RequestName))
                 Display(String.Format("  Op Container: {0}", op.OpContainerName))
-                Display(String.Format("  Op Params ({0})", op.CommandParamList.Count))
+                Display(String.Format("  Op Params ({0})", op.RequestParamList.Count))
                 Display("---------------------")
-                For Each param As String In op.CommandParamList
+                For Each param As String In op.RequestParamList
                     Display(String.Format("    {0}", param))
                 Next
                 Display(Environment.NewLine)
@@ -138,13 +138,13 @@ Public Class Form1
 
 #End Region
 
-#Region " SacoaCardDataCommand "
+#Region " SacoaCardDataRequest "
 
-#Region " GetSacoaCardDataCommand "
-    Private Function GetSacoaCardDataCommand() As SacoaPOSService.Commands.SacoaCardDataCommand
-        Dim SacoaCommand As New SacoaPOSService.Commands.SacoaCardDataCommand(PosId, EmpId)
-        SacoaCommand.CardNumber = txtCardDataNumber.Text
-        Return SacoaCommand
+#Region " GetSacoaCardDataRequest "
+    Private Function GetSacoaCardDataRequest() As SacoaService.Request.SacoaCardDataRequest
+        Dim SacoaRequest As New SacoaService.Request.SacoaCardDataRequest(PosId, EmpId)
+        SacoaRequest.CardNumber = txtCardDataNumber.Text
+        Return SacoaRequest
     End Function
 #End Region
 
@@ -153,9 +153,9 @@ Public Class Form1
         Try
             ClearDisplay()
 
-            Dim SacoaCommand = GetSacoaCardDataCommand()
+            Dim SacoaRequest = GetSacoaCardDataRequest()
 
-            Dim SacoaResponse As SacoaPOSService.Responses.SacoaCardDataResponse = service.SendCommand(SacoaCommand)
+            Dim SacoaResponse As SacoaService.Responses.SacoaCardDataResponse = service.SendRequest(SacoaRequest)
 
             DisplaySacoaCardDataResponse(SacoaResponse)
 
@@ -168,9 +168,9 @@ Public Class Form1
         Try
             ClearDisplay()
 
-            Dim SacoaCommand = GetSacoaCardDataCommand()
+            Dim SacoaRequest = GetSacoaCardDataRequest()
 
-            service.SendCommandAsync(SacoaCommand, AddressOf SacoaCardDataResponseDelegate)
+            service.SendRequestAsync(SacoaRequest, AddressOf SacoaCardDataResponseDelegate)
 
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -179,7 +179,7 @@ Public Class Form1
 
     Private Sub btnTestParseCardDataResponse_Click(sender As Object, e As EventArgs) Handles btnTestParseCardDataResponse.Click
         Try
-            Dim response As New SacoaPOSService.Responses.SacoaCardDataResponse(TestCardDataResponse)
+            Dim response As New SacoaService.Responses.SacoaCardDataResponse(TestCardDataResponse)
             DisplaySacoaCardDataResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -188,9 +188,9 @@ Public Class Form1
 #End Region
 
 #Region " Sacoa Response Delegate "
-    Public Sub SacoaCardDataResponseDelegate(e As SacoaPOSService.Responses.ISacoaResponse)
+    Public Sub SacoaCardDataResponseDelegate(e As SacoaService.Responses.ISacoaResponse)
         Try
-            Dim response As SacoaPOSService.Responses.SacoaCardDataResponse = DirectCast(e, SacoaPOSService.Responses.SacoaCardDataResponse)
+            Dim response As SacoaService.Responses.SacoaCardDataResponse = DirectCast(e, SacoaService.Responses.SacoaCardDataResponse)
             DisplaySacoaCardDataResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -199,7 +199,7 @@ Public Class Form1
 #End Region
 
 #Region " DisplaySacoaCardDataResponse "
-    Private Sub DisplaySacoaCardDataResponse(response As SacoaPOSService.Responses.SacoaCardDataResponse)
+    Private Sub DisplaySacoaCardDataResponse(response As SacoaService.Responses.SacoaCardDataResponse)
         Try
             Display(String.Format("Response Name: {0}", response.ResponseName))
             Display(String.Format("Response Status: {0}", response.ResponseState))
@@ -236,14 +236,14 @@ Public Class Form1
 
 #End Region
 
-#Region " SacoaCardHistoryCommand "
+#Region " SacoaCardHistoryRequest "
 
-#Region " GetSacoaCardHistoryCommand "
-    Private Function GetSacoaCardHistoryCommand() As SacoaPOSService.Commands.SacoaCardHistoryCommand
-        Dim SacoaCommand As New SacoaPOSService.Commands.SacoaCardHistoryCommand(PosId, EmpId)
-        SacoaCommand.CardNumber = txtCardHistoryNumber.Text
-        SacoaCommand.DesiredRecords = Convert.ToInt32(txtCardHistoryCount.Text)
-        Return SacoaCommand
+#Region " GetSacoaCardHistoryRequest "
+    Private Function GetSacoaCardHistoryRequest() As SacoaService.Request.SacoaCardHistoryRequest
+        Dim SacoaRequest As New SacoaService.Request.SacoaCardHistoryRequest(PosId, EmpId)
+        SacoaRequest.CardNumber = txtCardHistoryNumber.Text
+        SacoaRequest.DesiredRecords = Convert.ToInt32(txtCardHistoryCount.Text)
+        Return SacoaRequest
     End Function
 #End Region
 
@@ -252,9 +252,9 @@ Public Class Form1
         Try
             ClearDisplay()
 
-            Dim SacoaCommand = GetSacoaCardHistoryCommand()
+            Dim SacoaRequest = GetSacoaCardHistoryRequest()
 
-            Dim SacoaResponse As SacoaPOSService.Responses.SacoaCardHistoryResponse = service.SendCommand(SacoaCommand)
+            Dim SacoaResponse As SacoaService.Responses.SacoaCardHistoryResponse = service.SendRequest(SacoaRequest)
 
             DisplaySacoaCardHistoryResponse(SacoaResponse)
 
@@ -267,9 +267,9 @@ Public Class Form1
         Try
             ClearDisplay()
 
-            Dim SacoaCommand = GetSacoaCardHistoryCommand()
+            Dim SacoaRequest = GetSacoaCardHistoryRequest()
 
-            service.SendCommandAsync(SacoaCommand, AddressOf SacoaCardHistoryResponseDelegate)
+            service.SendRequestAsync(SacoaRequest, AddressOf SacoaCardHistoryResponseDelegate)
 
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -278,7 +278,7 @@ Public Class Form1
 
     Private Sub btnTestParseCardHistoryResponse_Click(sender As Object, e As EventArgs) Handles btnTestParseCardHistoryResponse.Click
         Try
-            Dim response As New SacoaPOSService.Responses.SacoaCardHistoryResponse(TestCardHistoryResponse)
+            Dim response As New SacoaService.Responses.SacoaCardHistoryResponse(TestCardHistoryResponse)
             DisplaySacoaCardHistoryResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -287,9 +287,9 @@ Public Class Form1
 #End Region
 
 #Region " Sacoa Response Delegate "
-    Public Sub SacoaCardHistoryResponseDelegate(e As SacoaPOSService.Responses.ISacoaResponse)
+    Public Sub SacoaCardHistoryResponseDelegate(e As SacoaService.Responses.ISacoaResponse)
         Try
-            Dim response As SacoaPOSService.Responses.SacoaCardHistoryResponse = DirectCast(e, SacoaPOSService.Responses.SacoaCardHistoryResponse)
+            Dim response As SacoaService.Responses.SacoaCardHistoryResponse = DirectCast(e, SacoaService.Responses.SacoaCardHistoryResponse)
             DisplaySacoaCardHistoryResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -298,13 +298,13 @@ Public Class Form1
 #End Region
 
 #Region " DisplaySacoaCardHistoryResponse "
-    Private Sub DisplaySacoaCardHistoryResponse(response As SacoaPOSService.Responses.SacoaCardHistoryResponse)
+    Private Sub DisplaySacoaCardHistoryResponse(response As SacoaService.Responses.SacoaCardHistoryResponse)
         Try
             Display(String.Format("Response Name: {0}", response.ResponseName))
             Display(String.Format("Response Status: {0}", response.ResponseState))
             Display(String.Format("TotalRecordCount: {0}", response.TotalRecordCount))
             Display(String.Format("RetreivedRecordCount: {0}", response.RetreivedRecordCount))
-            For Each cardHistory As SacoaPOSService.Logic.SacoaCardHistory In response.CardHistory
+            For Each cardHistory As SacoaService.Logic.SacoaCardHistory In response.CardHistory
                 Display(String.Format(" OpDate: {0}", cardHistory.OpDate))
                 Display(String.Format(" OpName: {0}", cardHistory.OpName))
                 Display(String.Format(" OpQty: {0}", cardHistory.OpQty))
@@ -327,13 +327,13 @@ Public Class Form1
 
 #End Region
 
-#Region " SacoaCardDecodeCommand "
+#Region " SacoaCardDecodeRequest "
 
-#Region " GetSacoaCardDecodeCommand "
-    Private Function GetSacoaCardDecodeCommand() As SacoaPOSService.Commands.SacoaCardDecodeCommand
-        Dim SacoaCommand As New SacoaPOSService.Commands.SacoaCardDecodeCommand(PosId, EmpId)
-        SacoaCommand.CardNumber = txtCardHistoryNumber.Text
-        Return SacoaCommand
+#Region " GetSacoaCardDecodeRequest "
+    Private Function GetSacoaCardDecodeRequest() As SacoaService.Request.SacoaCardDecodeRequest
+        Dim SacoaRequest As New SacoaService.Request.SacoaCardDecodeRequest(PosId, EmpId)
+        SacoaRequest.CardNumber = txtCardHistoryNumber.Text
+        Return SacoaRequest
     End Function
 #End Region
 
@@ -342,9 +342,9 @@ Public Class Form1
         Try
             ClearDisplay()
 
-            Dim SacoaCommand = GetSacoaCardDecodeCommand()
+            Dim SacoaRequest = GetSacoaCardDecodeRequest()
 
-            Dim SacoaResponse As SacoaPOSService.Responses.SacoaCardDecodeResponse = service.SendCommand(SacoaCommand)
+            Dim SacoaResponse As SacoaService.Responses.SacoaCardDecodeResponse = service.SendRequest(SacoaRequest)
 
             DisplaySacoaCardDecodeResponse(SacoaResponse)
 
@@ -357,9 +357,9 @@ Public Class Form1
         Try
             ClearDisplay()
 
-            Dim SacoaCommand = GetSacoaCardDecodeCommand()
+            Dim SacoaRequest = GetSacoaCardDecodeRequest()
 
-            service.SendCommandAsync(SacoaCommand, AddressOf SacoaCardDecodeResponseDelegate)
+            service.SendRequestAsync(SacoaRequest, AddressOf SacoaCardDecodeResponseDelegate)
 
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -368,7 +368,7 @@ Public Class Form1
 
     Private Sub btnTestParseCardDecodeResponse_Click(sender As Object, e As EventArgs) Handles btnTestParseCardDecodeResponse.Click
         Try
-            Dim response As New SacoaPOSService.Responses.SacoaCardDecodeResponse(TestCardDecodeResponse)
+            Dim response As New SacoaService.Responses.SacoaCardDecodeResponse(TestCardDecodeResponse)
             DisplaySacoaCardDecodeResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -377,9 +377,9 @@ Public Class Form1
 #End Region
 
 #Region " Sacoa Response Delegate "
-    Public Sub SacoaCardDecodeResponseDelegate(e As SacoaPOSService.Responses.ISacoaResponse)
+    Public Sub SacoaCardDecodeResponseDelegate(e As SacoaService.Responses.ISacoaResponse)
         Try
-            Dim response As SacoaPOSService.Responses.SacoaCardDecodeResponse = DirectCast(e, SacoaPOSService.Responses.SacoaCardDecodeResponse)
+            Dim response As SacoaService.Responses.SacoaCardDecodeResponse = DirectCast(e, SacoaService.Responses.SacoaCardDecodeResponse)
             DisplaySacoaCardDecodeResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -388,7 +388,7 @@ Public Class Form1
 #End Region
 
 #Region " DisplaySacoaCardDecodeResponse "
-    Private Sub DisplaySacoaCardDecodeResponse(response As SacoaPOSService.Responses.SacoaCardDecodeResponse)
+    Private Sub DisplaySacoaCardDecodeResponse(response As SacoaService.Responses.SacoaCardDecodeResponse)
         Try
             Display(String.Format("Response Name: {0}", response.ResponseName))
             Display(String.Format("Response Status: {0}", response.ResponseState))
@@ -404,30 +404,30 @@ Public Class Form1
 
 #End Region
 
-#Region " SacoaTicketsAddCommand "
+#Region " SacoaTicketsAddRequest "
     Private Sub btnAddTickets_Click(sender As Object, e As EventArgs) Handles btnAddTickets.Click
         Try
-            Dim SacoaCommand As New SacoaPOSService.Commands.SacoaTicketsAddCommand(PosId, EmpId)
-            SacoaCommand.CardRange = txtCard.Text
-            SacoaCommand.TicketAmount = Convert.ToInt32(txtAddTicketCount.Text)
+            Dim SacoaRequest As New SacoaService.Request.SacoaTicketsAddRequest(PosId, EmpId)
+            SacoaRequest.CardRange = txtCard.Text
+            SacoaRequest.TicketAmount = Convert.ToInt32(txtAddTicketCount.Text)
 
-            service.SendCommandAsync(SacoaCommand, AddressOf SacoaCardDataResponseDelegate)
+            service.SendRequestAsync(SacoaRequest, AddressOf SacoaCardDataResponseDelegate)
 
         Catch ex As Exception
             ExceptionHandler(ex)
         End Try
     End Sub
-   
+
 #End Region
 
-#Region " SacoaTicketsAddCommand "
+#Region " SacoaTicketsAddRequest "
     Private Sub btnTicketsRmv_Click(sender As Object, e As EventArgs) Handles btnTicketsRmv.Click
         Try
-            Dim SacoaCommand As New SacoaPOSService.Commands.SacoaTicketsRemoveCommand(PosId, EmpId)
-            SacoaCommand.CardRange = txtCard.Text
-            SacoaCommand.TicketAmount = Convert.ToInt32(txtRemoveTicketCount.Text)
+            Dim SacoaRequest As New SacoaService.Request.SacoaTicketsRemoveRequest(PosId, EmpId)
+            SacoaRequest.CardRange = txtCard.Text
+            SacoaRequest.TicketAmount = Convert.ToInt32(txtRemoveTicketCount.Text)
 
-            service.SendCommandAsync(SacoaCommand, AddressOf SacoaCardDataResponseDelegate)
+            service.SendRequestAsync(SacoaRequest, AddressOf SacoaCardDataResponseDelegate)
 
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -435,21 +435,21 @@ Public Class Form1
     End Sub
 #End Region
 
-#Region " SacoaCardSetCommand "
+#Region " SacoaCardSetRequest "
     Private Sub btnSet_Click(sender As Object, e As EventArgs) Handles btnSet.Click
         Try
-            Dim SacoaCommand As New SacoaPOSService.Commands.SacoaCardSetCommand(PosId, EmpId)
-            SacoaCommand.CardRange = txtCard.Text
-            SacoaCommand.Credits = txtCredits.Text
-            SacoaCommand.Bonus = txtBonus.Text
-            SacoaCommand.Courtesy = txtCourtesy.Text
-            SacoaCommand.Status = txtStatus.Text
-            SacoaCommand.Minutes = txtMinutes.Text
-            SacoaCommand.MoneyPaid = txtMoneyPaid.Text
-            SacoaCommand.CardCharge = txtCardCharge.Text
-            SacoaCommand.OldPassports = txtOldPassports.Text
+            Dim SacoaRequest As New SacoaService.Request.SacoaCardSetRequest(PosId, EmpId)
+            SacoaRequest.CardRange = txtCard.Text
+            SacoaRequest.Credits = txtCredits.Text
+            SacoaRequest.Bonus = txtBonus.Text
+            SacoaRequest.Courtesy = txtCourtesy.Text
+            SacoaRequest.Status = txtStatus.Text
+            SacoaRequest.Minutes = txtMinutes.Text
+            SacoaRequest.MoneyPaid = txtMoneyPaid.Text
+            SacoaRequest.CardCharge = txtCardCharge.Text
+            SacoaRequest.OldPassports = txtOldPassports.Text
 
-            service.SendCommandAsync(SacoaCommand, AddressOf SacoaCardDataResponseDelegate)
+            service.SendRequestAsync(SacoaRequest, AddressOf SacoaCardDataResponseDelegate)
 
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -457,21 +457,21 @@ Public Class Form1
     End Sub
 #End Region
 
-#Region " SacoaCardSaleCommand "
+#Region " SacoaCardSaleRequest "
     Private Sub btnSale_Click(sender As Object, e As EventArgs) Handles btnSale.Click
         Try
-            Dim SacoaCommand As New SacoaPOSService.Commands.SacoaCardSaleCommand(PosId, EmpId)
-            SacoaCommand.CardRange = txtCard.Text
-           SacoaCommand.Credits = txtCredits.Text
-            SacoaCommand.Bonus = txtBonus.Text
-            SacoaCommand.Courtesy = txtCourtesy.Text
-            SacoaCommand.Status = txtStatus.Text
-            SacoaCommand.Minutes = txtMinutes.Text
-            SacoaCommand.MoneyPaid = txtMoneyPaid.Text
-            SacoaCommand.CardCharge = txtCardCharge.Text
-            SacoaCommand.OldPassports = txtOldPassports.Text
+            Dim SacoaRequest As New SacoaService.Request.SacoaCardSaleRequest(PosId, EmpId)
+            SacoaRequest.CardRange = txtCard.Text
+            SacoaRequest.Credits = txtCredits.Text
+            SacoaRequest.Bonus = txtBonus.Text
+            SacoaRequest.Courtesy = txtCourtesy.Text
+            SacoaRequest.Status = txtStatus.Text
+            SacoaRequest.Minutes = txtMinutes.Text
+            SacoaRequest.MoneyPaid = txtMoneyPaid.Text
+            SacoaRequest.CardCharge = txtCardCharge.Text
+            SacoaRequest.OldPassports = txtOldPassports.Text
 
-            service.SendCommandAsync(SacoaCommand, AddressOf SacoaCardDataResponseDelegate)
+            service.SendRequestAsync(SacoaRequest, AddressOf SacoaCardDataResponseDelegate)
 
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -479,26 +479,26 @@ Public Class Form1
     End Sub
 #End Region
 
-#Region " SacoaCardRechargeCommand "
+#Region " SacoaCardRechargeRequest "
     Private Sub btnRecharge_Click(sender As Object, e As EventArgs) Handles btnRecharge.Click
         Try
-            Dim SacoaCommand As New SacoaPOSService.Commands.SacoaCardRechargeCommand(PosId, EmpId)
-            SacoaCommand.CardRange = txtCard.Text
-            SacoaCommand.Credits = txtCredits.Text
-            SacoaCommand.Bonus = txtBonus.Text
-            SacoaCommand.Courtesy = txtCourtesy.Text
-            SacoaCommand.Status = txtStatus.Text
-            SacoaCommand.Minutes = txtMinutes.Text
-            SacoaCommand.MoneyPaid = txtMoneyPaid.Text
-            SacoaCommand.CardCharge = txtCardCharge.Text
-            SacoaCommand.OldPassports = txtOldPassports.Text
+            Dim SacoaRequest As New SacoaService.Request.SacoaCardRechargeRequest(PosId, EmpId)
+            SacoaRequest.CardRange = txtCard.Text
+            SacoaRequest.Credits = txtCredits.Text
+            SacoaRequest.Bonus = txtBonus.Text
+            SacoaRequest.Courtesy = txtCourtesy.Text
+            SacoaRequest.Status = txtStatus.Text
+            SacoaRequest.Minutes = txtMinutes.Text
+            SacoaRequest.MoneyPaid = txtMoneyPaid.Text
+            SacoaRequest.CardCharge = txtCardCharge.Text
+            SacoaRequest.OldPassports = txtOldPassports.Text
 
-            service.SendCommandAsync(SacoaCommand, AddressOf SacoaCardDataResponseDelegate)
+            service.SendRequestAsync(SacoaRequest, AddressOf SacoaCardDataResponseDelegate)
 
         Catch ex As Exception
             ExceptionHandler(ex)
         End Try
     End Sub
 #End Region
-   
+
 End Class

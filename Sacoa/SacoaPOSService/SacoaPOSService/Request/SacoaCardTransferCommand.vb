@@ -1,12 +1,12 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaCardTransferCommand
-        Inherits SacoaCommand
+    Public Class SacoaCardTransferRequest
+        Inherits SacoaRequestBase
 
         Public Property SourceCardNumber As String
         Public Property TargetCardNumber As String
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
                 Return "CARD TRANSFER"
             End Get
@@ -16,8 +16,8 @@
             MyBase.New(posId, empId)
         End Sub
 
-        Public Overrides Function BuildCommand() As String
-            Return MyBase.FormatCommand(SourceCardNumber, TargetCardNumber)
+        Public Overrides Function BuildRequest() As String
+            Return MyBase.FormatRequest(SourceCardNumber, TargetCardNumber)
         End Function
 
     End Class

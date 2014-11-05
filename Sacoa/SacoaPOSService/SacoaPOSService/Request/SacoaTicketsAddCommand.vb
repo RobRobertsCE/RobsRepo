@@ -1,12 +1,12 @@
-﻿Namespace Commands
+﻿Namespace Request
 
-    Public Class SacoaTicketsAddCommand
-        Inherits SacoaCommand
+    Public Class SacoaTicketsAddRequest
+        Inherits SacoaRequestBase
 
         Public Property CardRange As String
         Public Property TicketAmount As String
 
-        Public Overrides ReadOnly Property CommandName As String
+        Public Overrides ReadOnly Property RequestName As String
             Get
                 Return "TICKETS ADD"
             End Get
@@ -16,8 +16,8 @@
             MyBase.New(posId, empId)
         End Sub
 
-        Public Overrides Function BuildCommand() As String
-            Return MyBase.FormatCommand(CardRange, TicketAmount)
+        Public Overrides Function BuildRequest() As String
+            Return MyBase.FormatRequest(CardRange, TicketAmount)
         End Function
 
     End Class

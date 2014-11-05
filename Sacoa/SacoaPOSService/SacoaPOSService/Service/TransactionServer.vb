@@ -1,6 +1,6 @@
 ﻿Imports System.Threading
-Imports SacoaPOSService.Commands
-Imports SacoaPOSService.Responses
+Imports SacoaService.Request
+Imports SacoaService.Responses
 Imports System
 Imports System.Collections.Generic
 Imports System.Linq
@@ -24,34 +24,34 @@ Namespace Service
 
 #End Region
 
-#Region " Public SendCommand/SendCommandAsync "
+#Region " Public SendCommand/SendRequestAsync "
 
         ''' <summary>
         ''' 
         ''' </summary>
-        ''' <param name="command"></param>
+        ''' <param name="request"></param>
         ''' <param name="callback"></param>
         ''' <remarks></remarks>
-        Public Overridable Sub SendCommandAsync(command As ISacoaCommand, callback As SacoaResponseDelegate) Implements ISacoaTransactionServer.SendCommandAsync
+        Public Overridable Sub SendRequestAsync(request As ISacoaRequest, callback As SacoaResponseDelegate) Implements ISacoaTransactionServer.SendRequestAsync
             Try
-                Dim commandThread As New Thread(Sub() SendAsync(command, callback))
+                Dim commandThread As New Thread(Sub() SendAsync(request, callback))
                 commandThread.Start()
             Catch ex As Exception
-                Throw New Exception("Error sending command: " & ex.Message)
+                Throw New Exception("Error sending request: " & ex.Message)
             End Try
         End Sub
 
         ''' <summary>
         ''' 
         ''' </summary>
-        ''' <param name="command"></param>
+        ''' <param name="request"></param>
         ''' <returns></returns>
         ''' <remarks></remarks>
-        Public Overridable Function SendCommand(command As ISacoaCommand) As ISacoaResponse Implements ISacoaTransactionServer.SendCommand
+        Public Overridable Function SendRequest(request As ISacoaRequest) As ISacoaResponse Implements ISacoaTransactionServer.SendRequest
             Try
-                Return Send(command)
+                Return Send(request)
             Catch ex As Exception
-                Throw New Exception("Error sending command: " & ex.Message)
+                Throw New Exception("Error sending request: " & ex.Message)
             End Try
         End Function
 
@@ -59,14 +59,14 @@ Namespace Service
 
 #Region " Send/SendAsync "
 
-        Protected Friend Overridable Sub SendAsync(command As ISacoaCommand, callback As SacoaResponseDelegate)
-            Dim response = Send(command)
+        Protected Friend Overridable Sub SendAsync(request As ISacoaRequest, callback As SacoaResponseDelegate)
+            Dim response = Send(request)
             callback.Invoke(response)
         End Sub
 
-        Protected Friend Overridable Function Send(command As ISacoaCommand) As ISacoaResponse
-            Dim commandString As String = GetCommandString(command)
-            Dim responseString = SendSacoaCommand(commandString)
+        Protected Friend Overridable Function Send(request As ISacoaRequest) As ISacoaResponse
+            Dim requestString As String = GetRequestString(request)
+            Dim responseString = SendSacoaRequest(requestString)
             Return SacoaResponseFactory.GetResponse(responseString)
         End Function
 
@@ -74,11 +74,11 @@ Namespace Service
 
 #Region " Protected Friend Methods "
 
-        Protected Friend Overridable Function GetCommandString(command As ISacoaCommand) As String
-            Return command.BuildCommand()
+        Protected Friend Overridable Function GetRequestString(request As ISacoaRequest) As String
+            Return request.BuildRequest()
         End Function
 
-        Protected Friend MustOverride Function SendSacoaCommand(commandString As String) As String
+        Protected Friend MustOverride Function SendSacoaRequest(requestString As String) As String
 
 #End Region
 
