@@ -5,9 +5,12 @@
         Public Property OpContainerName As String
         Public Property RequestParamList As New List(Of String)
 
-        Public Sub New(RequestDescriptionString As String, opContainerName As String)
+        Public Sub New(requestDescriptionString As String, opContainerName As String)
             Me.OpContainerName = opContainerName
-            RequestParamList.AddRange(RequestDescriptionString.Split(SplitOnSemiColon))
+            RequestParamList.AddRange(requestDescriptionString.Split(SplitOnSemiColon))
+            If requestDescriptionString.Count < 1 Then
+                Throw New ArgumentException(String.Format(Invalid_Data___0_, requestDescriptionString))
+            End If
             RequestName = RequestParamList(1)
         End Sub
     End Class

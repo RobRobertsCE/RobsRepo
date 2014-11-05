@@ -59,5 +59,14 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Invalid Data: {0}.
+        '''</summary>
+        Friend ReadOnly Property Invalid_Data___0_() As String
+            Get
+                Return ResourceManager.GetString("Invalid_Data___0_", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

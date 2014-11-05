@@ -1,7 +1,7 @@
 ﻿Namespace Logic
 
     Public Class SacoaCardHistory
-    
+
         Private Enum Fields
             OpDate = 0
             OpName
@@ -27,8 +27,7 @@
         Public Sub New(responseString As String)
             Dim responseValues As String() = responseString.Split(SplitOnSemiColon)
             If responseValues.Count < Fields.OpStoreId Then
-                Throw New ArgumentException("Invalid SacoaCardHistory Data: " & responseString)
-                Return
+                Throw New ArgumentException(String.Format(Invalid_Data___0_, responseString))
             End If
             OpDate = responseValues(Fields.OpDate).FromSacoaDateTime()
             OpName = responseValues(Fields.OpName).FromAsciiHex()
