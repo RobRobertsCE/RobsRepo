@@ -1,6 +1,6 @@
 ﻿Namespace Logic
 
-    Public Class SecoaCardHistory
+    Public Class SacoaCardHistory
         '<OpDate_YYYYMMDDHHNNSS>;
         '<OpName_ASCIIHex>;
         '<OpQty>;
@@ -29,23 +29,23 @@
         Public Property OpConcept As String
         Public Property OpCounter As String
         Public Property OpAmount As Decimal
-        Public Property OpType As SecoaOpType
+        Public Property OpType As SacoaOpType
         Public Property OpTransId As Integer
         Public Property OpStoreId As Integer
 
         Public Sub New(responseString As String)
             Dim responseValues As String() = responseString.Split(SplitOnSemiColon)
             If responseValues.Count < Fields.OpStoreId Then
-                Console.WriteLine("Invalid SecoaCardHistory Data! " & responseString)
+                Console.WriteLine("Invalid SacoaCardHistory Data! " & responseString)
                 Return
             End If
-            OpDate = responseValues(Fields.OpDate).FromSecoaDateTime()
+            OpDate = responseValues(Fields.OpDate).FromSacoaDateTime()
             OpName = responseValues(Fields.OpName).FromAsciiHex()
             OpQty = responseValues(Fields.OpQty)
             OpConcept = responseValues(Fields.OpConcept).FromAsciiHex()
             OpCounter = responseValues(Fields.OpCounter).FromAsciiHex()
             OpAmount = responseValues(Fields.OpAmount)
-            OpType = responseValues(Fields.OpType).ToSecoaOpType()
+            OpType = responseValues(Fields.OpType).ToSacoaOpType()
             OpTransId = responseValues(Fields.OpTransId)
             OpStoreId = responseValues(Fields.OpStoreId)
         End Sub

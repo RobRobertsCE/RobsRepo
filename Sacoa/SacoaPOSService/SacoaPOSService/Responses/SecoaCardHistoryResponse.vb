@@ -2,8 +2,8 @@
 
 Namespace Responses
 
-    Public Class SecoaCardHistoryResponse
-        Inherits SecoaResponse
+    Public Class SacoaCardHistoryResponse
+        Inherits SacoaResponse
 
         Private Enum Fields
             TotalRecordCount = 2
@@ -12,7 +12,7 @@ Namespace Responses
 
         Public Property TotalRecordCount As Integer
         Public Property RetreivedRecordCount As Integer
-        Public Property CardHistory As List(Of SecoaCardHistory)
+        Public Property CardHistory As List(Of SacoaCardHistory)
 
         Public Sub New(responseString As String)
             ParseResponse(responseString)
@@ -31,10 +31,10 @@ Namespace Responses
             MyBase.ParseResponse(responseValues)
             TotalRecordCount = CInt(responseValues(Fields.TotalRecordCount))
             RetreivedRecordCount = CInt(responseValues(Fields.RetreivedRecordCount))
-            CardHistory = New List(Of SecoaCardHistory)()
+            CardHistory = New List(Of SacoaCardHistory)()
             Dim startingHistoryRecordIdx As Integer = Fields.RetreivedRecordCount + 1
             For historyRecordIdx As Integer = startingHistoryRecordIdx To responseValues.Count - 1
-                CardHistory.Add(New SecoaCardHistory(responseValues(historyRecordIdx)))
+                CardHistory.Add(New SacoaCardHistory(responseValues(historyRecordIdx)))
             Next
         End Sub
 

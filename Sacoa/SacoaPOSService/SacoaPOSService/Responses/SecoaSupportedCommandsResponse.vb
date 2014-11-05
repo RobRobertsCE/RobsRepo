@@ -2,8 +2,8 @@
 
 Namespace Responses
 
-    Public Class SecoaSupportedCommandsResponse
-        Inherits SecoaResponse
+    Public Class SacoaSupportedCommandsResponse
+        Inherits SacoaResponse
 
         Private Enum Fields
             OpCountField = 2
@@ -11,7 +11,7 @@ Namespace Responses
 
         Private Const ParamStartTag As String = " <pos>"
         
-        Public Property OpDescriptions As List(Of SecoaOpDescription)
+        Public Property OpDescriptions As List(Of SacoaOpDescription)
         Public Property OpContent As String
 
         Public Sub New(responseString As String)
@@ -33,11 +33,11 @@ Namespace Responses
             Dim IncludeHandlerInfo As Boolean = False
             Dim OpContainer As String = String.Empty
 
-            OpDescriptions = New List(Of SecoaOpDescription)()
+            OpDescriptions = New List(Of SacoaOpDescription)()
             Dim OpLineCount = CInt(responseValues(Fields.OpCountField))
 
             If (responseValues.Count - 1 <> OpLineCount + Fields.OpCountField) Then
-                Throw New InvalidOperationException("Did not receive valid response from Secoa.")
+                Throw New InvalidOperationException("Did not receive valid response from Sacoa.")
             End If
 
             If Not (responseValues(startingValueIndex).StartsWith(ParamStartTag)) Then
@@ -51,10 +51,10 @@ Namespace Responses
                     If Not (responseValues(valueIndex).StartsWith(ParamStartTag)) Then
                         OpContainer = responseValues(valueIndex)
                     Else
-                        OpDescriptions.Add(New SecoaOpDescription(responseValues(valueIndex), OpContainer))
+                        OpDescriptions.Add(New SacoaOpDescription(responseValues(valueIndex), OpContainer))
                     End If
                 Else
-                    OpDescriptions.Add(New SecoaOpDescription(responseValues(valueIndex), OpContainer))
+                    OpDescriptions.Add(New SacoaOpDescription(responseValues(valueIndex), OpContainer))
                 End If
             Next
         End Sub

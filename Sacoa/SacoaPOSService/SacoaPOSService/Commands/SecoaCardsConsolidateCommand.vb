@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaCardsConsolidateCommand
-        Inherits SecoaCommand
+    Public Class SacoaCardsConsolidateCommand
+        Inherits SacoaCommand
 
         Public Property SourceCardCount As String
         Public Property TargetCardNumber As String

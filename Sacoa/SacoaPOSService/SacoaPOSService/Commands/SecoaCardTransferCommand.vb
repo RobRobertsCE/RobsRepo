@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaCardTransferCommand
-        Inherits SecoaCommand
+    Public Class SacoaCardTransferCommand
+        Inherits SacoaCommand
 
         Public Property SourceCardNumber As String
         Public Property TargetCardNumber As String

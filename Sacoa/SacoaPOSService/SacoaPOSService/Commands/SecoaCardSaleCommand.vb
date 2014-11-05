@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaCardSaleCommand
-        Inherits SecoaCardCommand
+    Public Class SacoaCardSaleCommand
+        Inherits SacoaCardCommand
 
         Public Overrides ReadOnly Property CommandName As String
             Get

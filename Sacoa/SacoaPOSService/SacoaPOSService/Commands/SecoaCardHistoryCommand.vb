@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaCardHistoryCommand
-        Inherits SecoaCardNumberCommand
+    Public Class SacoaCardHistoryCommand
+        Inherits SacoaCardNumberCommand
 
         Private Enum Fields
             CardNumber = 2

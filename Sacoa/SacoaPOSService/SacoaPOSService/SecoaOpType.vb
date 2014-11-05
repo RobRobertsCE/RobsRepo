@@ -1,4 +1,4 @@
-﻿Public Enum SecoaOpType
+﻿Public Enum SacoaOpType
     Unknown = 0
     Play = 1
     PosRecharge = 2

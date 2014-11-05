@@ -8,7 +8,7 @@ Namespace Service
 
 #Region " Enumerations "
 
-        Private Enum SecoaServerType
+        Private Enum SacoaServerType
             File
             Tcp
         End Enum
@@ -20,7 +20,7 @@ Namespace Service
         Private ReadOnly _port As Integer = 0
         Private ReadOnly _host As String = String.Empty
         Private ReadOnly _commandDirectory As String = String.Empty
-        Private _serverType As SecoaServerType
+        Private _serverType As SacoaServerType
 
 #End Region
 
@@ -28,83 +28,83 @@ Namespace Service
 
         Public Sub New(commandDirectory As String)
             _commandDirectory = commandDirectory
-            _serverType = SecoaServerType.File
+            _serverType = SacoaServerType.File
         End Sub
 
         Public Sub New(port As Integer, host As String)
             _port = port
             _host = host
-            _serverType = SecoaServerType.Tcp
+            _serverType = SacoaServerType.Tcp
         End Sub
 
 #End Region
 
 #Region " SendCommand "
 
-        Public Function SendCommand(command As SecoaCardDataCommand) As SecoaCardDataResponse
+        Public Function SendCommand(command As SacoaCardDataCommand) As SacoaCardDataResponse
             Return Send(command)
         End Function
-        Public Function SendCommand(command As SecoaCardDebitCommand) As SecoaCardDataResponse
-            Return Send(command)
-        End Function
-
-        Public Function SendCommand(command As SecoaCardDecodeCommand) As SecoaCardDecodeResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaCardHistoryCommand) As SecoaCardHistoryResponse
+        Public Function SendCommand(command As SacoaCardDebitCommand) As SacoaCardDataResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SecoaCardRechargeCommand) As SecoaCardDataResponse
+        Public Function SendCommand(command As SacoaCardDecodeCommand) As SacoaCardDecodeResponse
             Return Send(command)
         End Function
-        Public Function SendCommand(command As SecoaCardRefundCommand) As SecoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaCardRoamCommand) As SecoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaCardSaleCommand) As SecoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaCardsConsolidateCommand) As SecoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaCardSetChildCommand) As SecoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaCardSetCommand) As SecoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaCardTransferCommand) As SecoaCardDataResponse
+        Public Function SendCommand(command As SacoaCardHistoryCommand) As SacoaCardHistoryResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SecoaDelayedRechargeCommand) As SecoaDelayedRechargeResponse
+        Public Function SendCommand(command As SacoaCardRechargeCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaCardRefundCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaCardRoamCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaCardSaleCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaCardsConsolidateCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaCardSetChildCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaCardSetCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaCardTransferCommand) As SacoaCardDataResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SecoaPosOpenCommand) As SecoaPosResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaPosCloseCommand) As SecoaPosResponse
+        Public Function SendCommand(command As SacoaDelayedRechargeCommand) As SacoaDelayedRechargeResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SecoaSellPromoCommand) As SecoaCardDataResponse
+        Public Function SendCommand(command As SacoaPosOpenCommand) As SacoaPosResponse
             Return Send(command)
         End Function
-        Public Function SendCommand(command As SecoaTicketsAddCommand) As SecoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaTicketsRemoveCommand) As SecoaCardDataResponse
-            Return Send(command)
-        End Function
-        Public Function SendCommand(command As SecoaTicketSetTypeCommand) As SecoaCardDataResponse
+        Public Function SendCommand(command As SacoaPosCloseCommand) As SacoaPosResponse
             Return Send(command)
         End Function
 
-        Public Function SendCommand(command As SecoaSupportedCommandsCommand) As SecoaSupportedCommandsResponse
+        Public Function SendCommand(command As SacoaSellPromoCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaTicketsAddCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaTicketsRemoveCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+        Public Function SendCommand(command As SacoaTicketSetTypeCommand) As SacoaCardDataResponse
+            Return Send(command)
+        End Function
+
+        Public Function SendCommand(command As SacoaSupportedCommandsCommand) As SacoaSupportedCommandsResponse
             Return Send(command)
         End Function
 
@@ -112,7 +112,7 @@ Namespace Service
 
 #Region " SendCommandAsync "
 
-        Public Sub SendCommandAsync(command As ISecoaCommand, callback As SacoaResponseDelegate)
+        Public Sub SendCommandAsync(command As ISacoaCommand, callback As SacoaResponseDelegate)
             Try
                 GetTransactionServer().SendCommandAsync(command, callback)
             Catch ex As Exception
@@ -125,16 +125,16 @@ Namespace Service
 
 #Region " GetTransactionServer "
 
-        Protected Friend Overridable Function Send(command As ISecoaCommand) As ISacoaResponse
+        Protected Friend Overridable Function Send(command As ISacoaCommand) As ISacoaResponse
             Dim server = GetTransactionServer()
             Return server.SendCommand(command)
         End Function
 
-        Protected Friend Overridable Function GetTransactionServer() As ISecoaTransactionServer
+        Protected Friend Overridable Function GetTransactionServer() As ISacoaTransactionServer
             Select Case _serverType
-                Case SecoaServerType.File
+                Case SacoaServerType.File
                     Return New FileTransactionServer(_commandDirectory)
-                Case SecoaServerType.Tcp
+                Case SacoaServerType.Tcp
                     Return New TcpTransactionServer(_port, _host)
                 Case Else
                     Throw New ArgumentException(_serverType)

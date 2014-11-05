@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaDelayedRechargeCommand
-        Inherits SecoaCardCommand
+    Public Class SacoaDelayedRechargeCommand
+        Inherits SacoaCardCommand
 
         Public Property HyperCreditType As String
         Public Property AnsiDate As String

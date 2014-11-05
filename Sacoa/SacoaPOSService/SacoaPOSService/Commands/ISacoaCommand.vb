@@ -1,6 +1,6 @@
 ﻿Namespace Commands
 
-    Public Interface ISecoaCommand
+    Public Interface ISacoaCommand
 
         ReadOnly Property PosId As String
         ReadOnly Property CommandName As String

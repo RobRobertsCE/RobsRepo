@@ -2,14 +2,14 @@
 
 Namespace Responses
 
-    Public Class SecoaVersionResponse
-        Inherits SecoaResponse
+    Public Class SacoaVersionResponse
+        Inherits SacoaResponse
 
         Private Enum Fields
             Count = 2
         End Enum
 
-        Public Property Versions As List(Of SecoaVersionDescription)
+        Public Property Versions As List(Of SacoaVersionDescription)
 
         Protected Friend Sub New(responseString As String)
             ParseResponse(responseString)
@@ -26,10 +26,10 @@ Namespace Responses
 
         Protected Friend Overrides Sub ParseResponse(responseValues As String())
             MyBase.ParseResponse(responseValues)
-            Versions = New List(Of SecoaVersionDescription)()
+            Versions = New List(Of SacoaVersionDescription)()
             Dim versionCount As Integer = CInt(responseValues(Fields.Count))
             For idx As Integer = Fields.Count + 1 To versionCount + Fields.Count - 1
-                Versions.Add(New SecoaVersionDescription(responseValues(idx)))
+                Versions.Add(New SacoaVersionDescription(responseValues(idx)))
             Next
         End Sub
     End Class

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MockPosServer
 {
-    abstract class SecoaService
+    abstract class SacoaService
     {
         #region events
         public event DataReceivedHandler DataReceived;
@@ -44,7 +44,7 @@ namespace MockPosServer
 
         public abstract string ServiceName { get; }
 
-        protected internal SecoaService()
+        protected internal SacoaService()
         {
 
         }

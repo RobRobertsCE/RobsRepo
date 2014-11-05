@@ -6,10 +6,10 @@ using System.Text;
 
 namespace MockPosServer
 {
-    internal class FileService : SecoaService
+    internal class FileService : SacoaService
     {
         #region constants
-        private const string FileServiceName = "Secoa File Service";
+        private const string FileServiceName = "Sacoa File Service";
         private const string WatcherFiler = @"POS_*.Req";
         #endregion
 

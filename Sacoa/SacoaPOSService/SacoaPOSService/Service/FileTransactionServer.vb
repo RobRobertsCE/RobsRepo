@@ -7,8 +7,8 @@ Imports System.Text
 Namespace Service
 
     Public Class FileTransactionServer
-        Inherits SecoaTransactionServer
-        Implements ISecoaTransactionServer
+        Inherits SacoaTransactionServer
+        Implements ISacoaTransactionServer
 
 #Region " Constants "
 
@@ -22,10 +22,10 @@ Namespace Service
 
 #Region " Properties "
 
-        Private ReadOnly _secoaCommandDirectory As String
-        Public ReadOnly Property SecoaCommandDirectory() As String
+        Private ReadOnly _SacoaCommandDirectory As String
+        Public ReadOnly Property SacoaCommandDirectory() As String
             Get
-                Return _secoaCommandDirectory
+                Return _SacoaCommandDirectory
             End Get
         End Property
 
@@ -44,22 +44,22 @@ Namespace Service
 #Region " Constructor "
 
         Protected Friend Sub New(commandDirectory As String)
-            _secoaCommandDirectory = commandDirectory
+            _SacoaCommandDirectory = commandDirectory
         End Sub
 
 #End Region
 
 #Region " GetCommandString "
 
-        Protected Friend Overrides Function GetCommandString(command As ISecoaCommand) As String
+        Protected Friend Overrides Function GetCommandString(command As ISacoaCommand) As String
             Return command.BuildCommand() & Environment.NewLine
         End Function
 
 #End Region
 
-#Region " SendSecoaCommand "
+#Region " SendSacoaCommand "
 
-        Protected Friend Overrides Function SendSecoaCommand(cmd As String) As String
+        Protected Friend Overrides Function SendSacoaCommand(cmd As String) As String
             Dim commandFileTitle As String = GetCommandFileTitle()
             CreateCommandFile(commandFileTitle, cmd)
             RenameCommandFile(commandFileTitle)
@@ -82,17 +82,17 @@ Namespace Service
 
         Protected Friend Overridable Function GetCommandFileName(commandFileTitle As String) As String
             Dim fileName As String = commandFileTitle & CommandFileExtension
-            Dim fileFullName As String = System.IO.Path.Combine(SecoaCommandDirectory, fileName)
+            Dim fileFullName As String = System.IO.Path.Combine(SacoaCommandDirectory, fileName)
             Return fileFullName
         End Function
         Protected Friend Overridable Function GetRequestFileName(commandFileTitle As String) As String
             Dim fileName As String = commandFileTitle & RequestFileExtension
-            Dim fileFullName As String = System.IO.Path.Combine(SecoaCommandDirectory, fileName)
+            Dim fileFullName As String = System.IO.Path.Combine(SacoaCommandDirectory, fileName)
             Return fileFullName
         End Function
         Protected Friend Overridable Function GetResponseFileName(commandFileTitle As String) As String
             Dim fileName As String = commandFileTitle & ResponseFileExtension
-            Dim fileFullName As String = System.IO.Path.Combine(SecoaCommandDirectory, fileName)
+            Dim fileFullName As String = System.IO.Path.Combine(SacoaCommandDirectory, fileName)
             Return fileFullName
         End Function
 

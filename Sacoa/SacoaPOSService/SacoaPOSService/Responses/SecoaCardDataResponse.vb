@@ -1,7 +1,7 @@
 ﻿Namespace Responses
 
-Public Class SecoaCardDataResponse
-        Inherits SecoaResponse
+Public Class SacoaCardDataResponse
+        Inherits SacoaResponse
 
         Private Enum Fields
             CardRange = 2
@@ -34,7 +34,7 @@ Public Class SecoaCardDataResponse
         Public Property Credits As String
         Public Property Bonus As String
         Public Property Courtesy As String
-        Public Property Status As SecoaCardStatus
+        Public Property Status As SacoaCardStatus
         Public Property Station As String
         Public Property LastGameId As String
         Public Property CreditsLastBought As String
@@ -52,8 +52,8 @@ Public Class SecoaCardDataResponse
         Public Property Tickets As String
         Public Property CreditsEngineCredits As String
         Public Property TotalCreditsPlayed As String
-        Public Property ChildStatus As SecoaChildStatus
-        Public Property TicketType As SecoaTicketType
+        Public Property ChildStatus As SacoaChildStatus
+        Public Property TicketType As SacoaTicketType
 
         Public Sub New(responseString As String)
             ParseResponse(responseString)
@@ -75,15 +75,15 @@ Public Class SecoaCardDataResponse
             Credits = values(Fields.Credits)
             Bonus = values(Fields.Bonus)
             Courtesy = values(Fields.Courtesy)
-            Status = values(Fields.Status).ToSecoaCardStatus()
+            Status = values(Fields.Status).ToSacoaCardStatus()
             Station = values(Fields.Station)
             LastGameId = values(Fields.LastGameId)
             CreditsLastBought = values(Fields.CreditsLastBought)
             CreditsLastPlayed = values(Fields.CreditsLastPlayed)
-            DateLastBought = values(Fields.DateLastBought).FromSecoaDate()
-            DateLastPlayed = values(Fields.DateLastPlayed).FromSecoaDate()
-            TimeLastBought = values(Fields.TimeLastBought).FromSecoaTime()
-            TimeLastPlayed = values(Fields.TimeLastPlayed).FromSecoaTime()
+            DateLastBought = values(Fields.DateLastBought).FromSacoaDate()
+            DateLastPlayed = values(Fields.DateLastPlayed).FromSacoaDate()
+            TimeLastBought = values(Fields.TimeLastBought).FromSacoaTime()
+            TimeLastPlayed = values(Fields.TimeLastPlayed).FromSacoaTime()
             ConsecutiveDays = values(Fields.ConsecutiveDays)
             TotalDays = values(Fields.TotalDays)
             TotalBuys = values(Fields.TotalBuys)
@@ -93,8 +93,8 @@ Public Class SecoaCardDataResponse
             Tickets = values(Fields.Tickets)
             CreditsEngineCredits = values(Fields.CreditsEngineCredits)
             TotalCreditsPlayed = values(Fields.TotalCreditsPlayed)
-            ChildStatus = values(Fields.ChildStatus).ToSecoaChildStatus()
-            TicketType = values(Fields.TicketType).ToSecoaTicketType()
+            ChildStatus = values(Fields.ChildStatus).ToSacoaChildStatus()
+            TicketType = values(Fields.TicketType).ToSacoaTicketType()
         End Sub
 
     End Class

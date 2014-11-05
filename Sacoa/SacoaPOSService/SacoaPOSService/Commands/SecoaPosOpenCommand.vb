@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaPosOpenCommand
-        Inherits SecoaCommand
+    Public Class SacoaPosOpenCommand
+        Inherits SacoaCommand
 
         Public Overrides ReadOnly Property CommandName As String
             Get

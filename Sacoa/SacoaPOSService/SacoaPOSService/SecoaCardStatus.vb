@@ -1,4 +1,4 @@
-﻿Public Enum SecoaCardStatus
+﻿Public Enum SacoaCardStatus
     Unknown
     InHouse 'I
     NewTimeCard 't

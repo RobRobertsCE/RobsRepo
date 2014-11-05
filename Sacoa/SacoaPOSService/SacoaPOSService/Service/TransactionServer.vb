@@ -10,13 +10,13 @@ Imports System.Text
 
 Namespace Service
 
-    Public MustInherit Class SecoaTransactionServer
-        Implements ISecoaTransactionServer, IDisposable
+    Public MustInherit Class SacoaTransactionServer
+        Implements ISacoaTransactionServer, IDisposable
 
 #Region " Constructor "
 
         ''' <summary>
-        ''' Protected friend ctor for SecoaTransactionServer
+        ''' Protected friend ctor for SacoaTransactionServer
         ''' </summary>
         Protected Friend Sub New()
 
@@ -32,7 +32,7 @@ Namespace Service
         ''' <param name="command"></param>
         ''' <param name="callback"></param>
         ''' <remarks></remarks>
-        Public Overridable Sub SendCommandAsync(command As ISecoaCommand, callback As SacoaResponseDelegate) Implements ISecoaTransactionServer.SendCommandAsync
+        Public Overridable Sub SendCommandAsync(command As ISacoaCommand, callback As SacoaResponseDelegate) Implements ISacoaTransactionServer.SendCommandAsync
             Try
                 Dim commandThread As New Thread(Sub() SendAsync(command, callback))
                 commandThread.Start()
@@ -47,7 +47,7 @@ Namespace Service
         ''' <param name="command"></param>
         ''' <returns></returns>
         ''' <remarks></remarks>
-        Public Overridable Function SendCommand(command As ISecoaCommand) As ISacoaResponse Implements ISecoaTransactionServer.SendCommand
+        Public Overridable Function SendCommand(command As ISacoaCommand) As ISacoaResponse Implements ISacoaTransactionServer.SendCommand
             Try
                 Return Send(command)
             Catch ex As Exception
@@ -59,26 +59,26 @@ Namespace Service
 
 #Region " Send/SendAsync "
 
-        Protected Friend Overridable Sub SendAsync(command As ISecoaCommand, callback As SacoaResponseDelegate)
+        Protected Friend Overridable Sub SendAsync(command As ISacoaCommand, callback As SacoaResponseDelegate)
             Dim response = Send(command)
             callback.Invoke(response)
         End Sub
 
-        Protected Friend Overridable Function Send(command As ISecoaCommand) As ISacoaResponse
+        Protected Friend Overridable Function Send(command As ISacoaCommand) As ISacoaResponse
             Dim commandString As String = GetCommandString(command)
-            Dim responseString = SendSecoaCommand(commandString)
-            Return SecoaResponseFactory.GetResponse(responseString)
+            Dim responseString = SendSacoaCommand(commandString)
+            Return SacoaResponseFactory.GetResponse(responseString)
         End Function
 
 #End Region
 
 #Region " Protected Friend Methods "
 
-        Protected Friend Overridable Function GetCommandString(command As ISecoaCommand) As String
+        Protected Friend Overridable Function GetCommandString(command As ISacoaCommand) As String
             Return command.BuildCommand()
         End Function
 
-        Protected Friend MustOverride Function SendSecoaCommand(commandString As String) As String
+        Protected Friend MustOverride Function SendSacoaCommand(commandString As String) As String
 
 #End Region
 

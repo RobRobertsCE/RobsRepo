@@ -1,6 +1,6 @@
 ﻿Namespace Logic
 
-    Public Class SecoaOpDescription
+    Public Class SacoaOpDescription
         Public Property CommandName As String
         Public Property OpContainerName As String
         Public Property CommandParamList As New List(Of String)

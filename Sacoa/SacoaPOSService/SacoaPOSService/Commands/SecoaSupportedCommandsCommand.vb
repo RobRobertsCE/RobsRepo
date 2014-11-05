@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaSupportedCommandsCommand
-        Inherits SecoaCommand
+    Public Class SacoaSupportedCommandsCommand
+        Inherits SacoaCommand
 
         Public Property IncludeHandlerInfo As String = "Yes"
 

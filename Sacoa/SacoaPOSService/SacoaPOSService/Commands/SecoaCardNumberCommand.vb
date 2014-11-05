@@ -1,6 +1,6 @@
 ﻿Namespace Commands
-    Public MustInherit Class SecoaCardNumberCommand
-        Inherits SecoaCommand
+    Public MustInherit Class SacoaCardNumberCommand
+        Inherits SacoaCommand
 
         Public Property CardNumber As String
 

@@ -2,26 +2,26 @@
 
 Namespace Commands
 
-    Public MustInherit Class SecoaCommand
-        Implements ISecoaCommand
+    Public MustInherit Class SacoaCommand
+        Implements ISacoaCommand
 
 #Region " Properties "
 
         Private ReadOnly _posId As String = String.Empty
-        Public ReadOnly Property PosId As String Implements ISecoaCommand.PosId
+        Public ReadOnly Property PosId As String Implements ISacoaCommand.PosId
             Get
                 Return _posId
             End Get
         End Property
 
         Private ReadOnly _empId As String = String.Empty
-        Public ReadOnly Property EmpId As String Implements ISecoaCommand.EmpId
+        Public ReadOnly Property EmpId As String Implements ISacoaCommand.EmpId
             Get
                 Return _empId
             End Get
         End Property
 
-        Public MustOverride ReadOnly Property CommandName As String Implements ISecoaCommand.CommandName
+        Public MustOverride ReadOnly Property CommandName As String Implements ISacoaCommand.CommandName
 
 #End Region
 
@@ -36,7 +36,7 @@ Namespace Commands
 
 #Region " Public Methods "
 
-        Public Overridable Function BuildCommand() As String Implements ISecoaCommand.BuildCommand
+        Public Overridable Function BuildCommand() As String Implements ISacoaCommand.BuildCommand
             Return FormatCommand()
         End Function
 

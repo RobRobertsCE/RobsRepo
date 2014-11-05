@@ -10,8 +10,8 @@ Imports System.Threading
 Namespace Service
 
     Public Class TcpTransactionServer
-        Inherits SecoaTransactionServer
-        Implements ISecoaTransactionServer
+        Inherits SacoaTransactionServer
+        Implements ISacoaTransactionServer
 
 #Region " Properties "
 
@@ -42,15 +42,15 @@ Namespace Service
 
 #Region " GetCommandString "
 
-        Protected Friend Overrides Function GetCommandString(command As ISecoaCommand) As String
+        Protected Friend Overrides Function GetCommandString(command As ISacoaCommand) As String
             Return command.BuildCommand() & Environment.NewLine
         End Function
 
 #End Region
 
-#Region " SendSecoaCommand "
+#Region " SendSacoaCommand "
 
-        Protected Friend Overrides Function SendSecoaCommand(secoaCommand As String) As String
+        Protected Friend Overrides Function SendSacoaCommand(SacoaCommand As String) As String
             Dim address = IPAddress.Parse(_host)
             Dim localEndPoint As New IPEndPoint(address, _port)
             Dim responseData = String.Empty
@@ -64,7 +64,7 @@ Namespace Service
                     Using clientStreamWriter As StreamWriter = New StreamWriter(networkStream)
                         '// Send Request 
                         clientStreamWriter.Flush()
-                        Dim txData As Byte() = Encoding.UTF8.GetBytes(secoaCommand)
+                        Dim txData As Byte() = Encoding.UTF8.GetBytes(SacoaCommand)
                         networkStream.Write(txData, 0, txData.Length)
                         Thread.Sleep(3000)
                         '// Receive Response 

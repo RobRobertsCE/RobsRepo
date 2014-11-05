@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaTicketsAddCommand
-        Inherits SecoaCommand
+    Public Class SacoaTicketsAddCommand
+        Inherits SacoaCommand
 
         Public Property CardRange As String
         Public Property TicketAmount As String

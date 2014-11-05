@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaCardDebitCommand
-        Inherits SecoaCardCommand
+    Public Class SacoaCardDebitCommand
+        Inherits SacoaCardCommand
 
         Public Property DebitCode As String
 

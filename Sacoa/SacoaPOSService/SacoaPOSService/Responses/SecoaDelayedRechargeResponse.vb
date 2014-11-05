@@ -1,7 +1,7 @@
 ﻿Namespace Responses
 
-    Public Class SecoaDelayedRechargeResponse
-        Inherits SecoaResponse
+    Public Class SacoaDelayedRechargeResponse
+        Inherits SacoaResponse
 
         Private Enum Fields
             RechargeMdbFileName = 2

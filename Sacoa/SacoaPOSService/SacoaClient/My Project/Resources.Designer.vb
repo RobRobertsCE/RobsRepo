@@ -59,14 +59,5 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to OK, CARD HISTORY, 111, 111, 20130228183314;504F53205265636861726765;1;3230207265636861726765;43726564697473;20;2;4375;4352, 20130408174406;504F53205265636861726765;1;3130207265636861726765;43726564697473;10;2;4376;4352, 20130412160856;504F53205265636861726765;1;3130207265636861726765;43726564697473;10;2;4377;4352, 20130612155254;504F53205265636861726765;1;3230207265636861726765;43726564697473;20;2;4382;4352, 20130612173845;504F53205265636861726765;1;3130207265636861726765;43726564697473;10;2;4383;4352, 2013 [rest of string was truncated]&quot;;.
-        '''</summary>
-        Friend ReadOnly Property TestCardHistoryResponse() As String
-            Get
-                Return ResourceManager.GetString("TestCardHistoryResponse", resourceCulture)
-            End Get
-        End Property
     End Module
 End Namespace

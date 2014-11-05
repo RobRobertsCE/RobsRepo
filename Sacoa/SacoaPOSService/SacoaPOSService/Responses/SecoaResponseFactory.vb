@@ -1,6 +1,6 @@
 ﻿Imports SacoaPOSService.Responses
 
-Public Class SecoaResponseFactory
+Public Class SacoaResponseFactory
 
     Private Enum Fields
         OkError = 0
@@ -15,19 +15,19 @@ Public Class SecoaResponseFactory
             Case "CARD DATA", "CARD DEBIT", "CARD RECHARGE", "CARD REFUND", "CARD ROAM",
                 "CARD SALE", "CARD SET", "CARD SET CHILD", "TICKETS ADD", "TICKETS RMV",
                 "TICKETS SET TYPE", "CARDS CONSOLIDATE", "SELL PROMO", "CARD TRANSFER"
-                response = New SecoaCardDataResponse(responseValues)
+                response = New SacoaCardDataResponse(responseValues)
             Case "CARD DECODE"
-                response = New SecoaCardDecodeResponse(responseValues)
+                response = New SacoaCardDecodeResponse(responseValues)
             Case "CARD HISTORY"
-                response = New SecoaCardHistoryResponse(responseValues)
+                response = New SacoaCardHistoryResponse(responseValues)
             Case "DELAYED RECHARGE"
-                response = New SecoaDelayedRechargeResponse(responseValues)
+                response = New SacoaDelayedRechargeResponse(responseValues)
             Case "POS OPEN", "POS CLOSE"
-                response = New SecoaPosResponse(responseValues)
+                response = New SacoaPosResponse(responseValues)
             Case "VERSION"
-                response = New SecoaVersionResponse(responseValues)
+                response = New SacoaVersionResponse(responseValues)
             Case "SUPPORTED COMMANDS"
-                response = New SecoaSupportedCommandsResponse(responseValues)
+                response = New SacoaSupportedCommandsResponse(responseValues)
             Case Else
                 Throw New ArgumentException(responseType)
         End Select

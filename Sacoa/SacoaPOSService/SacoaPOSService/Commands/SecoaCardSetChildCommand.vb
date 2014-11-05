@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaCardSetChildCommand
-        Inherits SecoaCommand
+    Public Class SacoaCardSetChildCommand
+        Inherits SacoaCommand
 
         Public Property CardRange As String
         Public Property ChildStatus As String

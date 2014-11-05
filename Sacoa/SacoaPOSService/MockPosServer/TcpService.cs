@@ -5,9 +5,9 @@ using System.Text;
 
 namespace MockPosServer
 {
-    internal class TcpService : SecoaService
+    internal class TcpService : SacoaService
     {
-        private const string TcpServiceName = "Secoa Tcp Service";
+        private const string TcpServiceName = "Sacoa Tcp Service";
         private const string TestServer = "200.80.220.106";
         private const int TestPort = 14434;
 

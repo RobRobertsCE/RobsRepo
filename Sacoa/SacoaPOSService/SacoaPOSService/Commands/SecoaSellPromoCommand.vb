@@ -1,7 +1,7 @@
 ﻿Namespace Commands
 
-    Public Class SecoaSellPromoCommand
-        Inherits SecoaCardCommand
+    Public Class SacoaSellPromoCommand
+        Inherits SacoaCardCommand
 
         Public Property PayModeName As String
         Public Property PayModeId As String

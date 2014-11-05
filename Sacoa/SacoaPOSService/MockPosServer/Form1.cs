@@ -11,7 +11,7 @@ namespace MockPosServer
 {
     public partial class Form1 : Form
     {
-        private const string CommandDirectory = @"C:\Secoa";
+        private const string CommandDirectory = @"C:\Sacoa";
 
         private enum ServerState
         {

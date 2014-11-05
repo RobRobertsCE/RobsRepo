@@ -3,11 +3,11 @@ Imports SacoaPOSService.Responses
 
 Namespace Service
 
-    Public Interface ISecoaTransactionServer
+    Public Interface ISacoaTransactionServer
 
-        Sub SendCommandAsync(command As ISecoaCommand, callback As SacoaResponseDelegate)
+        Sub SendCommandAsync(command As ISacoaCommand, callback As SacoaResponseDelegate)
 
-        Function SendCommand(command As ISecoaCommand) As ISacoaResponse
+        Function SendCommand(command As ISacoaCommand) As ISacoaResponse
 
     End Interface
 

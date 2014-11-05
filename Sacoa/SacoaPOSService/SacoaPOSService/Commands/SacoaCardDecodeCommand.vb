@@ -1,11 +1,11 @@
 ﻿Namespace Commands
 
-    Public Class SecoaCardDataCommand
-        Inherits SecoaCardNumberCommand
+    Public Class SacoaCardDecodeCommand
+        Inherits SacoaCardNumberCommand
 
         Public Overrides ReadOnly Property CommandName As String
             Get
-                Return "CARD DATA"
+                Return "CARD DECODE"
             End Get
         End Property
 

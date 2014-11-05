@@ -1,4 +1,4 @@
-﻿Public Enum SecoaTicketType
+﻿Public Enum SacoaTicketType
     Unknown
     Real 'r/R
     Virtual  'v/V
