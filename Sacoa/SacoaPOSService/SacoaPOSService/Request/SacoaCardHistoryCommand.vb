@@ -12,7 +12,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARD HISTORY"
+                Return CardHistory
             End Get
         End Property
 

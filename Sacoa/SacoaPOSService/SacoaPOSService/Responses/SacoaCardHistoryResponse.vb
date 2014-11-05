@@ -3,7 +3,7 @@
 Namespace Response
 
     Public Class SacoaCardHistoryResponse
-        Inherits SacoaResponse
+        Inherits SacoaResponseBase
 
         Private Enum Fields
             TotalRecordCount = 2

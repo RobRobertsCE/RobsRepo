@@ -3,7 +3,7 @@
 Namespace Response
 
     Public Class SacoaVersionResponse
-        Inherits SacoaResponse
+        Inherits SacoaResponseBase
 
         Private Enum Fields
             Count = 2

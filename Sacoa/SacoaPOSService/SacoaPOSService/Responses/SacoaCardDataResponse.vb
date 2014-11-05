@@ -1,7 +1,7 @@
 ﻿Namespace Response
 
     Public Class SacoaCardDataResponse
-        Inherits SacoaResponse
+        Inherits SacoaResponseBase
 
         Private Enum Fields
             CardRange = 2

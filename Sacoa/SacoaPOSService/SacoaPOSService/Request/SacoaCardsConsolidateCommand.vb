@@ -9,7 +9,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARDS CONSOLIDATE"
+                Return CardsConsolidate
             End Get
         End Property
 

@@ -7,7 +7,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARD DEBIT"
+                Return CardDebit
             End Get
         End Property
 

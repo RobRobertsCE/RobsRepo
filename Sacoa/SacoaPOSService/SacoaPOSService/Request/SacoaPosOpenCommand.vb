@@ -5,7 +5,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "POS OPEN"
+                Return PosOpen
             End Get
         End Property
 

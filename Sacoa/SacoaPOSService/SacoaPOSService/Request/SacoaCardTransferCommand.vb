@@ -8,7 +8,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARD TRANSFER"
+                Return CardTransfer
             End Get
         End Property
 

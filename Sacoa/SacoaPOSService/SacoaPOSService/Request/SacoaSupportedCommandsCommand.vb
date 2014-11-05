@@ -7,7 +7,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "SUPPORTED COMMANDS"
+                Return SupportedCommands
             End Get
         End Property
 

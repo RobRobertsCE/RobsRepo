@@ -1,7 +1,7 @@
 ﻿Namespace Response
 
     Public Class SacoaCardDecodeResponse
-        Inherits SacoaResponse
+        Inherits SacoaResponseBase
 
         Private Enum Fields
             CardNumber = 2

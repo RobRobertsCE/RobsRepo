@@ -5,7 +5,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "VERSION"
+                Return Version
             End Get
         End Property
 

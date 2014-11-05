@@ -11,7 +11,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "SELL PROMO"
+                Return SellPromo
             End Get
         End Property
 

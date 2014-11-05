@@ -1,7 +1,7 @@
 ﻿Namespace Response
 
     Public Class SacoaPosResponse
-        Inherits SacoaResponse
+        Inherits SacoaResponseBase
 
         Private Enum Fields
             Result = 2

@@ -8,7 +8,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "TICKETS RMV"
+                Return TicketsRmv
             End Get
         End Property
 

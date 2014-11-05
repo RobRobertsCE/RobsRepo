@@ -1,6 +1,6 @@
 ﻿Namespace Response
 
-    Public MustInherit Class SacoaResponse
+    Public MustInherit Class SacoaResponseBase
         Implements ISacoaResponse
 
         Private _responseState As String = String.Empty

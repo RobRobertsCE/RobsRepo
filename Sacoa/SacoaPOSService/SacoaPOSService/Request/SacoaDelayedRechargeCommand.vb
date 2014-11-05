@@ -9,7 +9,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "DELAYED RECHARGE"
+                Return DelayedRecharge
             End Get
         End Property
 

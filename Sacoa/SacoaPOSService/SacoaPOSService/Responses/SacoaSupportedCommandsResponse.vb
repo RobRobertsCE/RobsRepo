@@ -3,7 +3,7 @@
 Namespace Response
 
     Public Class SacoaSupportedCommandsResponse
-        Inherits SacoaResponse
+        Inherits SacoaResponseBase
 
         Private Enum Fields
             OpCountField = 2

@@ -2,6 +2,7 @@
 
 Public Class SacoaResponseFactory
 
+
     Private Enum Fields
         OkError = 0
         ResponseType = 1
@@ -12,21 +13,21 @@ Public Class SacoaResponseFactory
         Dim responseValues() As String = GetResponseValues(responseString)
         Dim responseType As String = GetResponseType(responseValues)
         Select Case responseType.Trim()
-            Case "CARD DATA", "CARD DEBIT", "CARD RECHARGE", "CARD REFUND", "CARD ROAM",
-                "CARD SALE", "CARD SET", "CARD SET CHILD", "TICKETS ADD", "TICKETS RMV",
-                "TICKETS SET TYPE", "CARDS CONSOLIDATE", "SELL PROMO", "CARD TRANSFER"
+            Case CardData, CardDebit, CardRecharge, CardRefund, CardRoam,
+                CardSale, CardSet, CardSetChild, TicketsAdd, TicketsRmv,
+                TicketsSetType, CardsConsolidate, SellPromo, CardTransfer
                 response = New SacoaCardDataResponse(responseValues)
-            Case "CARD DECODE"
+            Case CardDecode
                 response = New SacoaCardDecodeResponse(responseValues)
-            Case "CARD HISTORY"
+            Case CardHistory
                 response = New SacoaCardHistoryResponse(responseValues)
-            Case "DELAYED RECHARGE"
+            Case DelayedRecharge
                 response = New SacoaDelayedRechargeResponse(responseValues)
-            Case "POS OPEN", "POS CLOSE"
+            Case PosOpen, PosClose
                 response = New SacoaPosResponse(responseValues)
-            Case "VERSION"
+            Case Version
                 response = New SacoaVersionResponse(responseValues)
-            Case "SUPPORTED COMMANDS"
+            Case SupportedCommands
                 response = New SacoaSupportedCommandsResponse(responseValues)
             Case Else
                 Throw New ArgumentException(responseType)

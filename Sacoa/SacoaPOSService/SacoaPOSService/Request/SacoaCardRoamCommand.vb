@@ -5,7 +5,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARD ROAM"
+                Return CardRoam
             End Get
         End Property
 

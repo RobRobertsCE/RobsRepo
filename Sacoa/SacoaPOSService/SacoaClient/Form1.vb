@@ -14,13 +14,13 @@ Public Class Form1
 #End Region
 
 #Region " Fields "
-    Dim service As SacoaService.Service.SacoaService = Nothing
+    Dim service As SacoaService.SacoaService = Nothing
 #End Region
 
 #Region " Form Load "
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            service = New SacoaService.Service.SacoaService(TestPort, TestServer)
+            service = New SacoaService.SacoaService(TestPort, TestServer)
 
         Catch ex As Exception
             ExceptionHandler(ex)

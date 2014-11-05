@@ -8,7 +8,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARD SET CHILD"
+                Return CardSetChild
             End Get
         End Property
 

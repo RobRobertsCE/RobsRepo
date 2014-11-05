@@ -8,7 +8,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "TICKETS SET TYPE"
+                Return TicketsSetType
             End Get
         End Property
 

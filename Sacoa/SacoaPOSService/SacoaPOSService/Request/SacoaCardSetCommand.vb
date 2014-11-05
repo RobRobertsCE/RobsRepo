@@ -5,7 +5,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARD SET"
+                Return CardSet
             End Get
         End Property
 

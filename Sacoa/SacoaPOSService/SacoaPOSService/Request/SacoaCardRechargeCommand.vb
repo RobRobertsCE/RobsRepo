@@ -5,7 +5,7 @@
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return "CARD RECHARGE"
+                Return CardRecharge
             End Get
         End Property
 
