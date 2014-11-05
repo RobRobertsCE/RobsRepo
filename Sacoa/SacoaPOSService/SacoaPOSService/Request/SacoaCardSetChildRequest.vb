@@ -4,7 +4,7 @@
         Inherits SacoaRequestBase
 
         Public Property CardRange As String
-        Public Property ChildStatus As String
+        Public Property ChildStatus As SacoaChildStatus
 
         Public Overrides ReadOnly Property RequestName As String
             Get

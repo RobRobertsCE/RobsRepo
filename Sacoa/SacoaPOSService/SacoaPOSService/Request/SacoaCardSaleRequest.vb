@@ -13,6 +13,10 @@
             MyBase.New(posId, empId)
         End Sub
 
+        Public Overrides Function BuildRequest() As String
+            Return MyBase.FormatRequest(CardRange, Credits, Bonus, Courtesy, Bonus, Status, Minutes, MoneyPaid, CardCharge, OldPassports)
+        End Function
+
     End Class
 
 End Namespace

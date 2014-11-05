@@ -22,7 +22,7 @@ namespace MockPosServer
             Error = 4
         }
 
-        private ServerState _state = ServerState.None;
+        private ServerState _state;
         private FileService _fileServer = null;
         private TcpService _tcpServer = null;
 

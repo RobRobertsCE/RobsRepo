@@ -3,7 +3,7 @@
     Public Class SacoaCardsConsolidateRequest
         Inherits SacoaRequestBase
 
-        Public Property SourceCardCount As String
+        Public Property SourceCardCount As Integer
         Public Property TargetCardNumber As String
         Public Property SourceCardNumbers As IList(Of String)
 

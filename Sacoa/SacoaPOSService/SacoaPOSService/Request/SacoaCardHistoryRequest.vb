@@ -3,11 +3,6 @@
     Public Class SacoaCardHistoryRequest
         Inherits SacoaCardNumberRequestBase
 
-        Private Enum Fields
-            CardNumber = 2
-            DesiredRecords = 3
-        End Enum
-
         Public Property DesiredRecords As Integer
 
         Public Overrides ReadOnly Property RequestName As String
