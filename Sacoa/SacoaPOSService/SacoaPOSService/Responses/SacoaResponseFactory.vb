@@ -15,7 +15,7 @@ Public Class SacoaResponseFactory
         Select Case responseType.Trim()
             Case CardData, CardDebit, CardRecharge, CardRefund, CardRoam,
                 CardSale, CardSet, CardSetChild, TicketsAdd, TicketsRmv,
-                TicketsSetType, CardsConsolidate, SellPromo, CardTransfer
+                TicketsSetType, CardsConsolidate, SellPromo, CardTransfer, CardReturnItem
                 response = New SacoaCardDataResponse(responseValues)
             Case CardDecode
                 response = New SacoaCardDecodeResponse(responseValues)
@@ -29,6 +29,8 @@ Public Class SacoaResponseFactory
                 response = New SacoaVersionResponse(responseValues)
             Case SupportedCommands
                 response = New SacoaSupportedCommandsResponse(responseValues)
+            Case Ping
+                response = New SacoaPingResponse(responseValues)
             Case Else
                 Throw New ArgumentException(responseType)
         End Select

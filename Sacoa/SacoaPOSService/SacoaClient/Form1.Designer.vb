@@ -75,6 +75,7 @@ Partial Class Form1
         Me.chkIncludeHandlerInfo = New System.Windows.Forms.CheckBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.txtDisplay = New System.Windows.Forms.TextBox()
+        Me.btnPing = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -326,6 +327,7 @@ Partial Class Form1
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.btnPing)
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.TextBox1)
         Me.GroupBox4.Controls.Add(Me.btnSendCardDecodeRequestAsync)
@@ -591,6 +593,15 @@ Partial Class Form1
         Me.txtDisplay.Size = New System.Drawing.Size(878, 231)
         Me.txtDisplay.TabIndex = 0
         '
+        'btnPing
+        '
+        Me.btnPing.Location = New System.Drawing.Point(8, 280)
+        Me.btnPing.Name = "btnPing"
+        Me.btnPing.Size = New System.Drawing.Size(64, 24)
+        Me.btnPing.TabIndex = 31
+        Me.btnPing.Text = "Ping"
+        Me.btnPing.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -668,5 +679,6 @@ Partial Class Form1
     Friend WithEvents txtBonus As System.Windows.Forms.TextBox
     Friend WithEvents txtCredits As System.Windows.Forms.TextBox
     Friend WithEvents btnRecharge As System.Windows.Forms.Button
+    Friend WithEvents btnPing As System.Windows.Forms.Button
 
 End Class

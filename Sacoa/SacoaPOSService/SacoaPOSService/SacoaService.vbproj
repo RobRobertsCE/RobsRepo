@@ -62,6 +62,9 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Request\SacoaCardReturnItemRequest.vb" />
+    <Compile Include="Request\SacoaPingRequest.vb" />
+    <Compile Include="Responses\SacoaPingResponse.vb" />
     <Compile Include="SacoaCardStatus.vb" />
     <Compile Include="SacoaChildStatus.vb" />
     <Compile Include="SacoaCommon.vb" />
