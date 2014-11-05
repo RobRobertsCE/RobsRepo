@@ -1,6 +1,6 @@
 ﻿Imports SacoaService.Logic
 
-Namespace Responses
+Namespace Response
 
     Public Class SacoaSupportedCommandsResponse
         Inherits SacoaResponse
@@ -10,7 +10,7 @@ Namespace Responses
         End Enum
 
         Private Const ParamStartTag As String = " <pos>"
-        
+
         Public Property OpDescriptions As List(Of SacoaOpDescription)
         Public Property OpContent As String
 

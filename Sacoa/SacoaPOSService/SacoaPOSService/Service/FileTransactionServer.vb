@@ -1,5 +1,5 @@
 ﻿Imports SacoaService.Request
-Imports SacoaService.Responses
+Imports SacoaService.Response
 Imports System
 Imports System.IO
 Imports System.Text

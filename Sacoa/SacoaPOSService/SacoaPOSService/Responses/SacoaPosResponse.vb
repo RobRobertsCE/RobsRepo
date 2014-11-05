@@ -1,4 +1,4 @@
-﻿Namespace Responses
+﻿Namespace Response
 
     Public Class SacoaPosResponse
         Inherits SacoaResponse

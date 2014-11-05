@@ -1,6 +1,6 @@
-﻿Namespace Responses
+﻿Namespace Response
 
-Public Class SacoaCardDataResponse
+    Public Class SacoaCardDataResponse
         Inherits SacoaResponse
 
         Private Enum Fields

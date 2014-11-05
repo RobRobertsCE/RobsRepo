@@ -1,4 +1,4 @@
-﻿Namespace Responses
+﻿Namespace Response
 
     Public MustInherit Class SacoaResponse
         Implements ISacoaResponse

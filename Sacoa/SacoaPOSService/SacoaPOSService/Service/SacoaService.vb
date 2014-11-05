@@ -1,5 +1,5 @@
 ﻿Imports SacoaService.Request
-Imports SacoaService.Responses
+Imports SacoaService.Response
 
 Namespace Service
 

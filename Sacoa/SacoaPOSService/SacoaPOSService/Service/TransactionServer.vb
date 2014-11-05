@@ -1,6 +1,6 @@
 ﻿Imports System.Threading
 Imports SacoaService.Request
-Imports SacoaService.Responses
+Imports SacoaService.Response
 Imports System
 Imports System.Collections.Generic
 Imports System.Linq

@@ -80,7 +80,7 @@ Public Class Form1
 
             Dim SacoaRequest = GetSacoaSupportedCommandsRequest()
 
-            Dim SacoaResponse As SacoaService.Responses.SacoaSupportedCommandsResponse = service.SendRequest(SacoaRequest)
+            Dim SacoaResponse As SacoaService.Response.SacoaSupportedCommandsResponse = service.SendRequest(SacoaRequest)
 
             DisplaySacoaSupportedCommandsResponse(SacoaResponse)
 
@@ -91,7 +91,7 @@ Public Class Form1
 
     Private Sub btnTestResponse_Click(sender As Object, e As EventArgs) Handles btnTestResponse.Click
         Try
-            Dim response As New SacoaService.Responses.SacoaSupportedCommandsResponse(TestCommandListResponse)
+            Dim response As New SacoaService.Response.SacoaSupportedCommandsResponse(TestCommandListResponse)
             DisplaySacoaSupportedCommandsResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -100,9 +100,9 @@ Public Class Form1
 #End Region
 
 #Region " SacoaResponseDelegate "
-    Public Sub SacoaResponseDelegate(e As SacoaService.Responses.ISacoaResponse)
+    Public Sub SacoaResponseDelegate(e As SacoaService.Response.ISacoaResponse)
         Try
-            Dim response As SacoaService.Responses.SacoaSupportedCommandsResponse = DirectCast(e, SacoaService.Responses.SacoaSupportedCommandsResponse)
+            Dim response As SacoaService.Response.SacoaSupportedCommandsResponse = DirectCast(e, SacoaService.Response.SacoaSupportedCommandsResponse)
             DisplaySacoaSupportedCommandsResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -111,7 +111,7 @@ Public Class Form1
 #End Region
 
 #Region " Display Response "
-    Private Sub DisplaySacoaSupportedCommandsResponse(response As SacoaService.Responses.SacoaSupportedCommandsResponse)
+    Private Sub DisplaySacoaSupportedCommandsResponse(response As SacoaService.Response.SacoaSupportedCommandsResponse)
         Try
             Display(String.Format("Response Name: {0}", response.ResponseName))
             Display(String.Format("Response Status: {0}", response.ResponseState))
@@ -155,7 +155,7 @@ Public Class Form1
 
             Dim SacoaRequest = GetSacoaCardDataRequest()
 
-            Dim SacoaResponse As SacoaService.Responses.SacoaCardDataResponse = service.SendRequest(SacoaRequest)
+            Dim SacoaResponse As SacoaService.Response.SacoaCardDataResponse = service.SendRequest(SacoaRequest)
 
             DisplaySacoaCardDataResponse(SacoaResponse)
 
@@ -179,7 +179,7 @@ Public Class Form1
 
     Private Sub btnTestParseCardDataResponse_Click(sender As Object, e As EventArgs) Handles btnTestParseCardDataResponse.Click
         Try
-            Dim response As New SacoaService.Responses.SacoaCardDataResponse(TestCardDataResponse)
+            Dim response As New SacoaService.Response.SacoaCardDataResponse(TestCardDataResponse)
             DisplaySacoaCardDataResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -188,9 +188,9 @@ Public Class Form1
 #End Region
 
 #Region " Sacoa Response Delegate "
-    Public Sub SacoaCardDataResponseDelegate(e As SacoaService.Responses.ISacoaResponse)
+    Public Sub SacoaCardDataResponseDelegate(e As SacoaService.Response.ISacoaResponse)
         Try
-            Dim response As SacoaService.Responses.SacoaCardDataResponse = DirectCast(e, SacoaService.Responses.SacoaCardDataResponse)
+            Dim response As SacoaService.Response.SacoaCardDataResponse = DirectCast(e, SacoaService.Response.SacoaCardDataResponse)
             DisplaySacoaCardDataResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -199,7 +199,7 @@ Public Class Form1
 #End Region
 
 #Region " DisplaySacoaCardDataResponse "
-    Private Sub DisplaySacoaCardDataResponse(response As SacoaService.Responses.SacoaCardDataResponse)
+    Private Sub DisplaySacoaCardDataResponse(response As SacoaService.Response.SacoaCardDataResponse)
         Try
             Display(String.Format("Response Name: {0}", response.ResponseName))
             Display(String.Format("Response Status: {0}", response.ResponseState))
@@ -254,7 +254,7 @@ Public Class Form1
 
             Dim SacoaRequest = GetSacoaCardHistoryRequest()
 
-            Dim SacoaResponse As SacoaService.Responses.SacoaCardHistoryResponse = service.SendRequest(SacoaRequest)
+            Dim SacoaResponse As SacoaService.Response.SacoaCardHistoryResponse = service.SendRequest(SacoaRequest)
 
             DisplaySacoaCardHistoryResponse(SacoaResponse)
 
@@ -278,7 +278,7 @@ Public Class Form1
 
     Private Sub btnTestParseCardHistoryResponse_Click(sender As Object, e As EventArgs) Handles btnTestParseCardHistoryResponse.Click
         Try
-            Dim response As New SacoaService.Responses.SacoaCardHistoryResponse(TestCardHistoryResponse)
+            Dim response As New SacoaService.Response.SacoaCardHistoryResponse(TestCardHistoryResponse)
             DisplaySacoaCardHistoryResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -287,9 +287,9 @@ Public Class Form1
 #End Region
 
 #Region " Sacoa Response Delegate "
-    Public Sub SacoaCardHistoryResponseDelegate(e As SacoaService.Responses.ISacoaResponse)
+    Public Sub SacoaCardHistoryResponseDelegate(e As SacoaService.Response.ISacoaResponse)
         Try
-            Dim response As SacoaService.Responses.SacoaCardHistoryResponse = DirectCast(e, SacoaService.Responses.SacoaCardHistoryResponse)
+            Dim response As SacoaService.Response.SacoaCardHistoryResponse = DirectCast(e, SacoaService.Response.SacoaCardHistoryResponse)
             DisplaySacoaCardHistoryResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -298,7 +298,7 @@ Public Class Form1
 #End Region
 
 #Region " DisplaySacoaCardHistoryResponse "
-    Private Sub DisplaySacoaCardHistoryResponse(response As SacoaService.Responses.SacoaCardHistoryResponse)
+    Private Sub DisplaySacoaCardHistoryResponse(response As SacoaService.Response.SacoaCardHistoryResponse)
         Try
             Display(String.Format("Response Name: {0}", response.ResponseName))
             Display(String.Format("Response Status: {0}", response.ResponseState))
@@ -344,7 +344,7 @@ Public Class Form1
 
             Dim SacoaRequest = GetSacoaCardDecodeRequest()
 
-            Dim SacoaResponse As SacoaService.Responses.SacoaCardDecodeResponse = service.SendRequest(SacoaRequest)
+            Dim SacoaResponse As SacoaService.Response.SacoaCardDecodeResponse = service.SendRequest(SacoaRequest)
 
             DisplaySacoaCardDecodeResponse(SacoaResponse)
 
@@ -368,7 +368,7 @@ Public Class Form1
 
     Private Sub btnTestParseCardDecodeResponse_Click(sender As Object, e As EventArgs) Handles btnTestParseCardDecodeResponse.Click
         Try
-            Dim response As New SacoaService.Responses.SacoaCardDecodeResponse(TestCardDecodeResponse)
+            Dim response As New SacoaService.Response.SacoaCardDecodeResponse(TestCardDecodeResponse)
             DisplaySacoaCardDecodeResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -377,9 +377,9 @@ Public Class Form1
 #End Region
 
 #Region " Sacoa Response Delegate "
-    Public Sub SacoaCardDecodeResponseDelegate(e As SacoaService.Responses.ISacoaResponse)
+    Public Sub SacoaCardDecodeResponseDelegate(e As SacoaService.Response.ISacoaResponse)
         Try
-            Dim response As SacoaService.Responses.SacoaCardDecodeResponse = DirectCast(e, SacoaService.Responses.SacoaCardDecodeResponse)
+            Dim response As SacoaService.Response.SacoaCardDecodeResponse = DirectCast(e, SacoaService.Response.SacoaCardDecodeResponse)
             DisplaySacoaCardDecodeResponse(response)
         Catch ex As Exception
             ExceptionHandler(ex)
@@ -388,7 +388,7 @@ Public Class Form1
 #End Region
 
 #Region " DisplaySacoaCardDecodeResponse "
-    Private Sub DisplaySacoaCardDecodeResponse(response As SacoaService.Responses.SacoaCardDecodeResponse)
+    Private Sub DisplaySacoaCardDecodeResponse(response As SacoaService.Response.SacoaCardDecodeResponse)
         Try
             Display(String.Format("Response Name: {0}", response.ResponseName))
             Display(String.Format("Response Status: {0}", response.ResponseState))

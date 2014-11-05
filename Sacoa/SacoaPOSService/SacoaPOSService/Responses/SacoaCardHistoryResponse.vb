@@ -1,6 +1,6 @@
 ﻿Imports SacoaService.Logic
 
-Namespace Responses
+Namespace Response
 
     Public Class SacoaCardHistoryResponse
         Inherits SacoaResponse

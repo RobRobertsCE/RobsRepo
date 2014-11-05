@@ -1,4 +1,4 @@
-﻿Imports SacoaService.Responses
+﻿Imports SacoaService.Response
 
 Public Class SacoaResponseFactory
 
