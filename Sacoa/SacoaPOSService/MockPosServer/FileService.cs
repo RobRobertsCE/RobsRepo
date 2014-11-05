@@ -90,7 +90,7 @@ namespace MockPosServer
         {
             System.Threading.Thread.Sleep(500);
 
-            string commandFileData = GetCommandFileData(commandFileName)
+            string commandFileData = GetCommandFileData(commandFileName);
             string opName = GetOpName(commandFileData);
             string responseData = ResponseFactory.GetResponse(opName);
 

@@ -64,28 +64,44 @@ Namespace Service
                     Using clientStreamWriter As StreamWriter = New StreamWriter(networkStream)
                         clientStreamWriter.Flush()
 
-                        Dim data As Byte() = Encoding.UTF8.GetBytes(cmd)
-                        networkStream.Write(data, 0, data.Length)
+                        Dim txData As Byte() = Encoding.UTF8.GetBytes(cmd)
+                        networkStream.Write(txData, 0, txData.Length)
 
-                        data(client.ReceiveBufferSize) = New Byte
+                        Dim rxData(client.ReceiveBufferSize) As Byte
                         Dim bufferSize As Integer = client.ReceiveBufferSize
 
-                        While (True)
-                            Dim bytes = networkStream.Read(data, 0, data.Length)
-                            If (bytes = 0) Then
-                                Exit While
-                            End If
-                            Dim temp = System.Text.Encoding.UTF8.GetString(data, 0, bytes)
-                            responseData = responseData + temp
-                        End While
-                        responseData = responseData.Replace("<EOF>", "")
+                        'networkStream.ReadTimeout = 5000
 
+                        'While (True)
+                        '    Dim bytes = networkStream.Read(rxData, 0, rxData.Length)
+                        '    If (bytes = 0) Then
+                        '        Exit While
+                        '    End If
+                        '    Dim temp = System.Text.Encoding.UTF8.GetString(rxData, 0, bytes)
+                        '    responseData = responseData + temp
+                        'End While
+
+                        ' Examples for CanRead, Read, and DataAvailable. 
+                        ' Check to see if this NetworkStream is readable. 
+                        If networkStream.CanRead Then
+                            Dim myReadBuffer(4096) As Byte
+                            Dim myCompleteMessage As StringBuilder = New StringBuilder()
+                            Dim numberOfBytesRead As Integer = 0
+                            ' Incoming message may be larger than the buffer size. 
+                            Do
+                                numberOfBytesRead = networkStream.Read(myReadBuffer, 0, myReadBuffer.Length)
+                                myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead))
+                            Loop While networkStream.DataAvailable
+                            ' Print out the received message to the console.
+                            Console.WriteLine(("You received the following message : " + myCompleteMessage.ToString()))
+                            responseData = myCompleteMessage.ToString().Replace("<EOF>", "")
+                        Else
+                            Console.WriteLine("Sorry.  You cannot read from this NetworkStream.")
+                        End If
                     End Using
                 End Using
             End Using
-
             Return (responseData)
-
         End Function
 
 #End Region

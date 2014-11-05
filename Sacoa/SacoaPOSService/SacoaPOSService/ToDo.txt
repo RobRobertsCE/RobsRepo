@@ -9,3 +9,7 @@
 7. Move strings to consts, add asciihex values?
 8. Add business logic for individual fields.
 9. Change Command to Op
+
+
+<OpDate_YYYYMMDDHHNNSS>
+Times are in 24 hour format, no AM/PM indicators.

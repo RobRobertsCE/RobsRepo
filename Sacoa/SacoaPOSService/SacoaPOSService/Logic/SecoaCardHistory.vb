@@ -35,7 +35,7 @@
 
         Public Sub New(responseString As String)
             Dim responseValues As String() = responseString.Split(";"c)
-            OpDate = responseValues(Fields.OpDate)
+            OpDate = responseValues(Fields.OpDate).FromSecoaDateTime()
             OpName = responseValues(Fields.OpName).FromAsciiHex()
             OpQty = responseValues(Fields.OpQty)
             OpConcept = responseValues(Fields.OpConcept).FromAsciiHex()

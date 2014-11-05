@@ -109,6 +109,10 @@ Namespace Service
             Return Send(command)
         End Function
 
+        Public Function SendCommand(command As SecoaSupportedCommandsCommand) As SecoaSupportedCommandsResponse
+            Return Send(command)
+        End Function
+
 #End Region
 
 #Region " SendCommandAsync "

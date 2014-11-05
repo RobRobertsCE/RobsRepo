@@ -1,4 +1,5 @@
-﻿Imports System.Runtime.CompilerServices
+﻿Imports System.Globalization
+Imports System.Runtime.CompilerServices
 
 Module AsciiHexConverterExtensions
 
@@ -18,6 +19,18 @@ Module AsciiHexConverterExtensions
             sb.Append(Conversion.Hex(Asc(letterToConvert)))
         Next
         Return sb.ToString()
+    End Function
+
+    Private Const SecoaDateTimeFormat As String = "YYYYMMDDHHNNSS"
+
+    <Extension()>
+    Public Function FromSecoaDateTime(encodedDateTimeString As String) As DateTime
+        Return Date.ParseExact(encodedDateTimeString, SecoaDateTimeFormat, DateTimeFormatInfo.InvariantInfo)
+    End Function
+
+    <Extension()>
+    Public Function ToSecoaDateTime(dateToEncode As DateTime) As String
+        Return dateToEncode.ToString(SecoaDateTimeFormat, DateTimeFormatInfo.InvariantInfo)
     End Function
 
 End Module

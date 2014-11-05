@@ -7,9 +7,13 @@ Namespace Responses
 
         Private Enum Fields
             Count = 2
+            FirstOpContainer = 3
+            FirstOpDescription = 4
         End Enum
 
         Public Property OpDescriptions As List(Of SecoaOpDescription)
+        Public Property OpCount As Integer
+        Public Property OpContent As String
 
         Protected Friend Sub New(responseString As String)
             ParseResponse(responseString)
@@ -27,9 +31,22 @@ Namespace Responses
         Protected Friend Overrides Sub ParseResponse(responseValues As String())
             MyBase.ParseResponse(responseValues)
             OpDescriptions = New List(Of SecoaOpDescription)()
-            Dim opCount As Integer = CInt(responseValues(Fields.Count))
-            For idx As Integer = Fields.Count + 1 To opCount + Fields.Count - 1
-                OpDescriptions.Add(New SecoaOpDescription(responseValues(idx)))
+            OpCount = CInt(responseValues(Fields.Count))
+            Dim OpContainer As String = responseValues(Fields.FirstOpContainer)
+
+            For idx As Integer = Fields.FirstOpDescription To responseValues.Count - 1
+                If (responseValues(idx).StartsWith(" <pos>")) Then
+                    Try
+                        OpDescriptions.Add(New SecoaOpDescription(responseValues(idx), OpContainer))
+                    Catch ex As Exception
+                        Console.WriteLine(ex.ToString())
+                    End Try
+                    OpDescriptions.Add(New SecoaOpDescription(responseValues(idx), OpContainer))
+                Else
+                    OpContainer = responseValues(idx)
+                    Console.WriteLine("OpContainer=" & OpContainer)
+                End If
+
             Next
         End Sub
 

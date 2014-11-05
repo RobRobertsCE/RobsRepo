@@ -4,30 +4,34 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5BF8CBCF-FE7A-4BFC-AF68-16998F17843B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>SacoaPOSService</RootNamespace>
-    <AssemblyName>SacoaPOSService</AssemblyName>
+    <ProjectGuid>{6795E5D6-9F4D-4443-83D6-727A95341A7F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SacoaClient.My.MyApplication</StartupObject>
+    <RootNamespace>SacoaClient</RootNamespace>
+    <AssemblyName>SacoaClient</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Windows</MyType>
+    <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>SacoaPOSService.xml</DocumentationFile>
+    <DocumentationFile>SacoaClient.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>SacoaPOSService.xml</DocumentationFile>
+    <DocumentationFile>SacoaClient.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -45,6 +49,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,57 +63,21 @@
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SecoaConverters.vb" />
-    <Compile Include="Commands\SecoaCardCommand.vb" />
-    <Compile Include="Commands\SecoaCardHistoryCommand.vb" />
-    <Compile Include="Commands\SecoaCardNumberCommand.vb" />
-    <Compile Include="Commands\SecoaCardRefundCommand.vb" />
-    <Compile Include="Commands\ISecoaCommand.vb" />
-    <Compile Include="Commands\SecoaCardDataCommand.vb" />
-    <Compile Include="Commands\SecoaCardDebitCommand.vb" />
-    <Compile Include="Commands\SecoaCardDecodeCommand.vb" />
-    <Compile Include="Commands\SecoaCardRechargeCommand.vb" />
-    <Compile Include="Commands\SecoaCardRoamCommand.vb" />
-    <Compile Include="Commands\SecoaCardSaleCommand.vb" />
-    <Compile Include="Commands\SecoaCardsConsolidateCommand.vb" />
-    <Compile Include="Commands\SecoaCardSetChildCommand.vb" />
-    <Compile Include="Commands\SecoaCardSetCommand.vb" />
-    <Compile Include="Commands\SecoaCardTransferCommand.vb" />
-    <Compile Include="Commands\SecoaCommand.vb" />
-    <Compile Include="Commands\SecoaDelayedRechargeCommand.vb" />
-    <Compile Include="Commands\SecoaPosCloseCommand.vb" />
-    <Compile Include="Commands\SecoaPosOpenCommand.vb" />
-    <Compile Include="Commands\SecoaSellPromoCommand.vb" />
-    <Compile Include="Commands\SecoaSupportedCommandsCommand.vb" />
-    <Compile Include="Commands\SecoaTicketsAddCommand.vb" />
-    <Compile Include="Commands\SecoaTicketSetTypeCommand.vb" />
-    <Compile Include="Commands\SecoaTicketsRemoveCommand.vb" />
-    <Compile Include="Commands\SecoaVersionCommand.vb" />
-    <Compile Include="Logic\SecoaCardHistory.vb" />
-    <Compile Include="Logic\SecoaOpDescription.vb" />
-    <Compile Include="Responses\ISecoaResponse.vb" />
-    <Compile Include="Responses\SecoaCardDataResponse.vb" />
-    <Compile Include="Responses\SecoaCardDecodeResponse.vb" />
-    <Compile Include="Responses\SecoaCardHistoryResponse.vb" />
-    <Compile Include="Responses\SecoaDelayedRechargeResponse.vb" />
-    <Compile Include="Responses\SecoaPosResponse.vb" />
-    <Compile Include="Responses\SecoaResponse.vb" />
-    <Compile Include="Responses\SecoaResponseFactory.vb" />
-    <Compile Include="Responses\SecoaSupportedCommandsResponse.vb" />
-    <Compile Include="Logic\SecoaVersionDescription.vb" />
-    <Compile Include="Responses\SecoaVersionResponse.vb" />
-    <Compile Include="Service\ActiveXTransactionServer.vb" />
-    <Compile Include="Service\FileTransactionServer.vb" />
-    <Compile Include="Service\ISecoaTransactionServer.vb" />
-    <Compile Include="Service\SacoaService.vb" />
-    <Compile Include="Service\SecoaResponseDelegate.vb" />
-    <Compile Include="Service\TcpTransactionServer.vb" />
-    <Compile Include="Service\TransactionServer.vb" />
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -124,6 +95,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -141,9 +115,13 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ToDo.txt" />
+    <ProjectReference Include="..\SacoaPOSService\SacoaPOSService.vbproj">
+      <Project>{5bf8cbcf-fe7a-4bfc-af68-16998f17843b}</Project>
+      <Name>SacoaPOSService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
