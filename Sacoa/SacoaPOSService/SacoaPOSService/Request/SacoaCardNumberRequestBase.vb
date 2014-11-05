@@ -1,5 +1,5 @@
 ﻿Namespace Request
-    Public MustInherit Class SacoaCardNumberRequest
+    Public MustInherit Class SacoaCardNumberRequestBase
         Inherits SacoaRequestBase
 
         Public Property CardNumber As String

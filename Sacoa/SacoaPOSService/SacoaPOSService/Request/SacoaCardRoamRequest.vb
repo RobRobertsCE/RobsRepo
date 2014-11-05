@@ -1,11 +1,11 @@
 ﻿Namespace Request
 
-    Public Class SacoaCardDataRequest
-        Inherits SacoaCardNumberRequest
+    Public Class SacoaCardRoamRequest
+        Inherits SacoaCardNumberRequestBase
 
         Public Overrides ReadOnly Property RequestName As String
             Get
-                Return CardData
+                Return CardRoam
             End Get
         End Property
 
@@ -16,3 +16,5 @@
     End Class
 
 End Namespace
+
+

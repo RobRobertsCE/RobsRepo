@@ -1,7 +1,7 @@
 ﻿Namespace Request
 
     Public Class SacoaCardHistoryRequest
-        Inherits SacoaCardNumberRequest
+        Inherits SacoaCardNumberRequestBase
 
         Private Enum Fields
             CardNumber = 2
