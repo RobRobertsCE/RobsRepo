@@ -64,9 +64,9 @@ Namespace My
     Friend Module MySettingsProperty
 
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")> _
-        Friend ReadOnly Property Settings() As Global.SacoaService.My.MySettings
+        Friend ReadOnly Property Settings() As Global.SacoaInterface.My.MySettings
             Get
-                Return Global.SacoaService.My.MySettings.Default
+                Return Global.SacoaInterface.My.MySettings.Default
             End Get
         End Property
     End Module

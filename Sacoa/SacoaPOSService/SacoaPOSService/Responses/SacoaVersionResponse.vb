@@ -1,4 +1,4 @@
-﻿Imports SacoaService.Logic
+﻿Imports SacoaInterface.Logic
 
 Namespace Response
 

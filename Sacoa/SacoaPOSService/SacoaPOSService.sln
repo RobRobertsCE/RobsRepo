@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SacoaService", "SacoaPOSService\SacoaService.vbproj", "{5BF8CBCF-FE7A-4BFC-AF68-16998F17843B}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SacoaInterface", "SacoaPOSService\SacoaInterface.vbproj", "{5BF8CBCF-FE7A-4BFC-AF68-16998F17843B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockPosServer", "MockPosServer\MockPosServer.csproj", "{98B8B0C9-4D41-46B5-9F0B-92C5D82B8A47}"
 EndProject

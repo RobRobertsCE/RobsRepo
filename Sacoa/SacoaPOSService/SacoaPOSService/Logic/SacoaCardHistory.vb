@@ -27,7 +27,7 @@
         Public Sub New(responseString As String)
             Dim responseValues As String() = responseString.Split(SplitOnSemiColon)
             If responseValues.Count < Fields.OpStoreId Then
-                Throw New ArgumentException(String.Format(Invalid_Data___0_, responseString))
+                Throw New ArgumentException(String.Format(My.Resources.Invalid_Data___0_, responseString))
             End If
             OpDate = responseValues(Fields.OpDate).FromSacoaDateTime()
             OpName = responseValues(Fields.OpName).FromAsciiHex()

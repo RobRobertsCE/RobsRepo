@@ -9,7 +9,7 @@
             Me.OpContainerName = opContainerName
             RequestParamList.AddRange(requestDescriptionString.Split(SplitOnSemiColon))
             If requestDescriptionString.Count < 1 Then
-                Throw New ArgumentException(String.Format(Invalid_Data___0_, requestDescriptionString))
+                Throw New ArgumentException(String.Format(My.Resources.Invalid_Data___0_, requestDescriptionString))
             End If
             RequestName = RequestParamList(1)
         End Sub

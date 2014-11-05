@@ -118,9 +118,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SacoaPOSService\SacoaService.vbproj">
+    <ProjectReference Include="..\SacoaPOSService\SacoaInterface.vbproj">
       <Project>{5bf8cbcf-fe7a-4bfc-af68-16998f17843b}</Project>
-      <Name>SacoaService</Name>
+      <Name>SacoaInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

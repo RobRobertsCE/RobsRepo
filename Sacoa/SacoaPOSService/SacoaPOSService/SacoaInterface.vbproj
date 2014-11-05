@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5BF8CBCF-FE7A-4BFC-AF68-16998F17843B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SacoaService</RootNamespace>
-    <AssemblyName>SacoaService</AssemblyName>
+    <RootNamespace>SacoaInterface</RootNamespace>
+    <AssemblyName>SacoaInterface</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -18,7 +18,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>SacoaService.xml</DocumentationFile>
+    <DocumentationFile>SacoaInterface.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -27,7 +27,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>SacoaService.xml</DocumentationFile>
+    <DocumentationFile>SacoaInterface.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
-    <Import Include="SacoaService.My.Resources" />
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
@@ -109,12 +108,11 @@
     <Compile Include="Responses\SacoaVersionResponse.vb" />
     <Compile Include="SacoaOpType.vb" />
     <Compile Include="SacoaTicketType.vb" />
-    <Compile Include="FileTransactionServer.vb" />
-    <Compile Include="ISacoaTransactionServer.vb" />
-    <Compile Include="SacoaService.vb" />
     <Compile Include="Responses\SacoaResponseDelegate.vb" />
-    <Compile Include="TcpTransactionServer.vb" />
-    <Compile Include="TransactionServer.vb" />
+    <Compile Include="Service\ISacoaTransactionServer.vb" />
+    <Compile Include="Service\SacoaService.vb" />
+    <Compile Include="Service\TcpTransactionServer.vb" />
+    <Compile Include="Service\TransactionServer.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
